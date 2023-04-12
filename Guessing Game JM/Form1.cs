@@ -13,6 +13,15 @@ namespace Guessing_Game_JM
     public partial class FormMain : Form
     {
 
+        /* 
+        * John Moreau
+        * CSS133
+        * 4/12/2023
+        * Simple Guessing Game :)
+        * 
+        * 
+        * */
+
         // class level variable to store the random number
         private int randomNumber;
         // class level variable to store the number of guesses
