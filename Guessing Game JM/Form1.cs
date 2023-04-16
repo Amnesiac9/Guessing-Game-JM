@@ -15,15 +15,15 @@ namespace Guessing_Game_JM
     public partial class FormMain : Form
     {
 
-       /* 
-        * John Moreau
-        * CSS133
-        * 4/16/2023
-        * Simple Guessing Game :)
-        * Saves high scores to a csv file
-        * 
-        * 
-        */
+        /* 
+         * 
+         * John Moreau
+         * CSS133
+         * 4/16/2023
+         * Simple Guessing Game :)
+         * Saves and loads high scores to a csv file
+         * 
+         */
 
 
         /*
@@ -32,27 +32,23 @@ namespace Guessing_Game_JM
          * Writing data to a Grid View
          * https://stackoverflow.com/questions/33494332/reading-and-displaying-data-from-csv-file-on-windows-form-application-using-c-sh
          * 
-         * Reading and writing to a csv file
+         * Reading and writing to a file
+         * https://www.geeksforgeeks.org/how-to-read-and-write-a-text-file-in-c-sharp/
+         * https://stackoverflow.com/questions/18757097/writing-data-into-csv-file-in-c-sharp
+         * I think I could improve this by using a class and list to store the high scores
+         * and using csvhelper as shown here: 
          * https://www.youtube.com/watch?v=IT8bT3NsaRg
          * https://www.youtube.com/watch?v=fRaSeLYYrcQ
          * 
-         * 
          */
 
-        // class level variable to store the random number
-        private int randomNumber;
-        // class level variable to store the number of guesses
-        private int guesses;
-        // class level variable to store the max number of guesses
-        int maxGuesses;
-        // class level array to store the easy high scores
-        int[] easyHighScores = new int[5];
-        // class level array to store the medium high scores
-        int[] normalHighScores = new int[5];
-        // class level array to store the hard high scores
-        int[] hardHighScores = new int[5];
-      
-        
+        // Global Variables
+        private int randomNumber; // class level variable to store the random number
+        private int guesses; // class level variable to store the number of guesses
+        int maxGuesses; // class level variable to store the max number of guesses
+        int[] easyHighScores = new int[5]; // class level array to store the easy high scores
+        int[] normalHighScores = new int[5]; // class level array to store the medium high scores
+        int[] hardHighScores = new int[5]; // class level array to store the hard high scores
 
 
         public FormMain()
@@ -63,10 +59,9 @@ namespace Guessing_Game_JM
         //////////////////////
         //*    Main Form   *//
         //////////////////////
-
         private void FormMain_Load(object sender, EventArgs e)
         {
-            // Get high scores from csv file
+            // Get high scores from csv file if it exists
             readHighScores();
         }
 
@@ -114,6 +109,7 @@ namespace Guessing_Game_JM
 
         }
 
+
         /////////////////////////
         //* HIGH SCORES PANEL *//
         /////////////////////////
@@ -129,6 +125,7 @@ namespace Guessing_Game_JM
             // Set the FormMain cancel button to the buttonExit
             this.CancelButton = buttonExit;
         }
+
 
         //////////////////////
         //* SETTINGS PANEL *//
@@ -188,9 +185,9 @@ namespace Guessing_Game_JM
 
         }
 
-        //////////////////
-        //* MAIN PANEL *//
-        //////////////////
+        ///////////////////////
+        //* MAIN GAME PANEL *//
+        ///////////////////////
 
         // Main Menu button
         private void buttonMainMenu_Click(object sender, EventArgs e)
@@ -232,17 +229,14 @@ namespace Guessing_Game_JM
         //////////////////////////////////
         private void guessingGameInitialize()
         {
-            // 1. Get the difficulty
-            string difficulty = Properties.Settings.Default.Difficulty;
-            // 1.a Set the difficulty value label
-            labelDifficultyValue.Text = difficulty;
-            // 1.c Reset the text box
-            textBoxResponse.Text = "Random number generated. Make your first guess!";
-            // 1.d Reset the guess count label
-            labelGuessCount.Text = "0";
-            // 1.e Reset the guess text box
-            textBoxGuess.Text = "";
-            // 2. Set the maximum value for the random number generator and limit guesses based on the difficulty
+            string difficulty = Properties.Settings.Default.Difficulty; // Get the difficulty
+            labelDifficultyValue.Text = difficulty; // Set the difficulty value label
+            textBoxResponse.Text = "Random number generated. Make your first guess!"; // Reset the text box
+            labelGuessCount.Text = "0"; // Reset the guess count label
+            textBoxGuess.Text = ""; // Reset the guess text box
+            this.guesses = 0; // Set the number of guesses to 0
+
+            // Set the maximum value for the random number generator and limit guesses based on the difficulty
             int max;
             if (difficulty == "Easy")
             {
@@ -262,7 +256,8 @@ namespace Guessing_Game_JM
                 labelDifficultyValue.ForeColor = Color.Black;
                 labelRangeValue.Text = "1 - 25";
 
-            } else // Hard
+            } 
+            else // Hard
             {
                 // Set the maximum value to 50
                 max = 50;
@@ -272,16 +267,15 @@ namespace Guessing_Game_JM
                 labelRangeValue.Text = "1 - 50";
 
             }
-            // 4. Create a random number generator
-            Random random = new Random();
-            // 5. Generate a random number between 1 and the maximum value
-            this.randomNumber = random.Next(1, max);
-            // 6. Set the number of guesses to 0
-            this.guesses = 0;
-            // 7. Enable the guess button and text box
+            
+            Random random = new Random(); // Create a random number generator
+            this.randomNumber = random.Next(1, max); // Generate a random number between 1 and the maximum value
+
+            // Enable the guess button and text box
             buttonGuess.Enabled = true;
             textBoxGuess.Enabled = true;
         }
+
 
         ///////////////////////////////
         // Main Game, handle guesses //
@@ -294,21 +288,17 @@ namespace Guessing_Game_JM
             {
                 // Display an error message
                 MessageBox.Show("Please enter a number!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                // Clear the text box
-                textBoxGuess.Text = "";
-                // Set focus to the text box
-                textBoxGuess.Focus();
-                // Exit the method
-                return;
+                textBoxGuess.Text = ""; // Clear the text box
+                textBoxGuess.Focus(); // Set focus to the text box
+                return; // Exit the method
             }
 
-            // Increment the number of guesses
-            guesses++;
-            // Update the guess count label
-            labelGuessCount.Text = $"{guesses}";
+            
+            guesses++; // Increment the number of guesses
+            labelGuessCount.Text = $"{guesses}"; // Update the guess count label
 
             // Check for loss
-            if (guesses >= maxGuesses && guess != randomNumber)
+            if (guesses >= maxGuesses && guess != randomNumber) 
             {
                 // Add result message to the text box
                 textBoxResponse.AppendText($"{Environment.NewLine}~~You Lose!~~ The number was {randomNumber}.");
@@ -318,7 +308,7 @@ namespace Guessing_Game_JM
                 textBoxGuess.Enabled = false;
             }
             // Check if the guess is too high
-            else if (guess > randomNumber)
+            else if (guess > randomNumber) 
             {
                 // Add result message to the text box
                 string resultMessage = "Too High, try again!";
@@ -343,17 +333,15 @@ namespace Guessing_Game_JM
                     // Write the high scores to the CSV file
                     writeHighScores();
                 }
-                    
-                    
-                textBoxResponse.AppendText (Environment.NewLine + "To play again, press restart.");
+
                 // Disable the guess button and text box
                 buttonGuess.Enabled = false;
                 textBoxGuess.Enabled = false;
-                
+
+                // Play again?
+                textBoxResponse.AppendText (Environment.NewLine + "To play again, press restart.");
+    
             }
-
-
-
         }
 
         //////////////////////////////////
@@ -409,7 +397,6 @@ namespace Guessing_Game_JM
                     normalHighScores[i] = score;
                     if (score > 0)
                         dataTable.Rows.Add(line);
-
                 }
             }
             // Easy
@@ -452,17 +439,17 @@ namespace Guessing_Game_JM
             //Hard
             for (int i = 0; i < hardHighScores.Length; i++)
             {
-                sw.WriteLine("Hard," + today + "," + hardHighScores[i]);
+                   sw.WriteLine("Hard," + today + "," + hardHighScores[i]);
             }
             //Normal
             for (int i = 0; i < normalHighScores.Length; i++)
             {
-                sw.WriteLine("Normal," + today + "," + normalHighScores[i]);
+                   sw.WriteLine("Normal," + today + "," + normalHighScores[i]);
             }
             //Easy
             for (int i = 0; i < easyHighScores.Length; i++)
             {
-                sw.WriteLine("Easy," + today + "," + easyHighScores[i]);
+                   sw.WriteLine("Easy," + today + "," + easyHighScores[i]);
             }
             sw.Close();
 
