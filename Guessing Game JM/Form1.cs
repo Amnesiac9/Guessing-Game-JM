@@ -26,6 +26,9 @@ namespace Guessing_Game_JM
         private int randomNumber;
         // class level variable to store the number of guesses
         private int guesses;
+        // class level variable to store the max number of guesses
+        int maxGuesses;
+
 
         public FormMain()
         {
@@ -186,27 +189,37 @@ namespace Guessing_Game_JM
             textBoxResponse.Text = "Random number generated. Make your first guess!";
             // 1.d Reset the guess count label
             labelGuessCount.Text = "0";
-            // 2. Set the maximum value for the random number generator
-            int max = 25;
-            // 3. Set the maximum value for the random number generator based on the difficulty
+            // 1.e Reset the guess text box
+            textBoxGuess.Text = "";
+            // 2. Set the maximum value for the random number generator and limit guesses based on the difficulty
+            int max;
             if (difficulty == "Easy")
             {
                 // Set the maximum value to 10
                 max = 10;
+                maxGuesses = 5;
+                labelMaxGuesses.Text = "/ 5";
                 labelDifficultyValue.ForeColor = Color.Green;
                 labelRangeValue.Text = "1 - 10";
             }
-            else if (difficulty == "Hard")
-            {
-                max = 50;
-                labelDifficultyValue.ForeColor = Color.Red;
-                labelRangeValue.Text = "1 - 50";
-            } else
+            else if (difficulty == "Normal")
             {
                 // Set the maximum value to 25
                 max = 25;
+                maxGuesses = 8;
+                labelMaxGuesses.Text = "/ 8";
                 labelDifficultyValue.ForeColor = Color.Black;
                 labelRangeValue.Text = "1 - 25";
+
+            } else // Hard
+            {
+                // Set the maximum value to 50
+                max = 50;
+                maxGuesses = 10;
+                labelMaxGuesses.Text = "/ 10";
+                labelDifficultyValue.ForeColor = Color.Red;
+                labelRangeValue.Text = "1 - 50";
+
             }
             // 4. Create a random number generator
             Random random = new Random();
@@ -237,13 +250,24 @@ namespace Guessing_Game_JM
                 // Exit the method
                 return;
             }
-            
+
             // Increment the number of guesses
             guesses++;
             // Update the guess count label
             labelGuessCount.Text = $"{guesses}";
+
+            // Check for loss
+            if (guesses >= maxGuesses && guess != randomNumber)
+            {
+                // Add result message to the text box
+                textBoxResponse.AppendText($"{Environment.NewLine}~~You Lose!~~ The number was {randomNumber}.");
+                textBoxResponse.AppendText(Environment.NewLine + "To play again, press restart.");
+                // Disable the guess button and text box
+                buttonGuess.Enabled = false;
+                textBoxGuess.Enabled = false;
+            }
             // Check if the guess is too high
-            if (guess > randomNumber)
+            else if (guess > randomNumber)
             {
                 // Add result message to the text box
                 string resultMessage = "Too High, try again!";
@@ -255,6 +279,7 @@ namespace Guessing_Game_JM
                 // Add result message to the text box
                 string resultMessage = "Too Low, try again!";
                 textBoxResponse.AppendText($"{Environment.NewLine}{guess}: {resultMessage}");
+
             }
             else // The guess is correct
             {
@@ -266,8 +291,9 @@ namespace Guessing_Game_JM
                 textBoxGuess.Enabled = false;
             }
 
-        }
 
+
+        }
 
     }
 }

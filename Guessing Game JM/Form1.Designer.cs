@@ -40,17 +40,18 @@
             this.buttonSettingsAccept = new System.Windows.Forms.Button();
             this.pictureBoxSettings = new System.Windows.Forms.PictureBox();
             this.panelMain = new System.Windows.Forms.Panel();
+            this.labelRangeValue = new System.Windows.Forms.Label();
+            this.labelCurrentRangeText = new System.Windows.Forms.Label();
+            this.labelDifficultyValue = new System.Windows.Forms.Label();
+            this.labelDifficulty2 = new System.Windows.Forms.Label();
+            this.labelGuessCount = new System.Windows.Forms.Label();
+            this.labelGuess = new System.Windows.Forms.Label();
             this.buttonMainMenu = new System.Windows.Forms.Button();
             this.buttonRestart = new System.Windows.Forms.Button();
             this.buttonGuess = new System.Windows.Forms.Button();
             this.textBoxGuess = new System.Windows.Forms.TextBox();
             this.textBoxResponse = new System.Windows.Forms.TextBox();
-            this.labelGuess = new System.Windows.Forms.Label();
-            this.labelGuessCount = new System.Windows.Forms.Label();
-            this.labelDifficulty2 = new System.Windows.Forms.Label();
-            this.labelDifficultyValue = new System.Windows.Forms.Label();
-            this.labelCurrentRangeText = new System.Windows.Forms.Label();
-            this.labelRangeValue = new System.Windows.Forms.Label();
+            this.labelMaxGuesses = new System.Windows.Forms.Label();
             this.panelSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSettings)).BeginInit();
             this.panelMain.SuspendLayout();
@@ -186,6 +187,7 @@
             // 
             // panelMain
             // 
+            this.panelMain.Controls.Add(this.labelMaxGuesses);
             this.panelMain.Controls.Add(this.labelRangeValue);
             this.panelMain.Controls.Add(this.labelCurrentRangeText);
             this.panelMain.Controls.Add(this.labelDifficultyValue);
@@ -202,6 +204,62 @@
             this.panelMain.Size = new System.Drawing.Size(748, 567);
             this.panelMain.TabIndex = 6;
             this.panelMain.Visible = false;
+            // 
+            // labelRangeValue
+            // 
+            this.labelRangeValue.AutoSize = true;
+            this.labelRangeValue.Location = new System.Drawing.Point(356, 75);
+            this.labelRangeValue.Name = "labelRangeValue";
+            this.labelRangeValue.Size = new System.Drawing.Size(38, 16);
+            this.labelRangeValue.TabIndex = 10;
+            this.labelRangeValue.Text = "1 - 50";
+            // 
+            // labelCurrentRangeText
+            // 
+            this.labelCurrentRangeText.AutoSize = true;
+            this.labelCurrentRangeText.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCurrentRangeText.Location = new System.Drawing.Point(339, 53);
+            this.labelCurrentRangeText.Name = "labelCurrentRangeText";
+            this.labelCurrentRangeText.Size = new System.Drawing.Size(71, 16);
+            this.labelCurrentRangeText.TabIndex = 9;
+            this.labelCurrentRangeText.Text = "Min | Max";
+            // 
+            // labelDifficultyValue
+            // 
+            this.labelDifficultyValue.AutoSize = true;
+            this.labelDifficultyValue.Location = new System.Drawing.Point(170, 295);
+            this.labelDifficultyValue.Name = "labelDifficultyValue";
+            this.labelDifficultyValue.Size = new System.Drawing.Size(55, 16);
+            this.labelDifficultyValue.TabIndex = 8;
+            this.labelDifficultyValue.Text = "Medium";
+            // 
+            // labelDifficulty2
+            // 
+            this.labelDifficulty2.AutoSize = true;
+            this.labelDifficulty2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDifficulty2.Location = new System.Drawing.Point(94, 295);
+            this.labelDifficulty2.Name = "labelDifficulty2";
+            this.labelDifficulty2.Size = new System.Drawing.Size(70, 16);
+            this.labelDifficulty2.TabIndex = 7;
+            this.labelDifficulty2.Text = "Difficulty:";
+            // 
+            // labelGuessCount
+            // 
+            this.labelGuessCount.AutoSize = true;
+            this.labelGuessCount.Location = new System.Drawing.Point(593, 295);
+            this.labelGuessCount.Name = "labelGuessCount";
+            this.labelGuessCount.Size = new System.Drawing.Size(0, 16);
+            this.labelGuessCount.TabIndex = 6;
+            // 
+            // labelGuess
+            // 
+            this.labelGuess.AutoSize = true;
+            this.labelGuess.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelGuess.Location = new System.Drawing.Point(515, 295);
+            this.labelGuess.Name = "labelGuess";
+            this.labelGuess.Size = new System.Drawing.Size(72, 16);
+            this.labelGuess.TabIndex = 5;
+            this.labelGuess.Text = "Guesses:";
             // 
             // buttonMainMenu
             // 
@@ -253,61 +311,14 @@
             this.textBoxResponse.Size = new System.Drawing.Size(571, 193);
             this.textBoxResponse.TabIndex = 0;
             // 
-            // labelGuess
+            // labelMaxGuesses
             // 
-            this.labelGuess.AutoSize = true;
-            this.labelGuess.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelGuess.Location = new System.Drawing.Point(515, 295);
-            this.labelGuess.Name = "labelGuess";
-            this.labelGuess.Size = new System.Drawing.Size(72, 16);
-            this.labelGuess.TabIndex = 5;
-            this.labelGuess.Text = "Guesses:";
-            // 
-            // labelGuessCount
-            // 
-            this.labelGuessCount.AutoSize = true;
-            this.labelGuessCount.Location = new System.Drawing.Point(593, 295);
-            this.labelGuessCount.Name = "labelGuessCount";
-            this.labelGuessCount.Size = new System.Drawing.Size(0, 16);
-            this.labelGuessCount.TabIndex = 6;
-            // 
-            // labelDifficulty2
-            // 
-            this.labelDifficulty2.AutoSize = true;
-            this.labelDifficulty2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDifficulty2.Location = new System.Drawing.Point(94, 295);
-            this.labelDifficulty2.Name = "labelDifficulty2";
-            this.labelDifficulty2.Size = new System.Drawing.Size(70, 16);
-            this.labelDifficulty2.TabIndex = 7;
-            this.labelDifficulty2.Text = "Difficulty:";
-            // 
-            // labelDifficultyValue
-            // 
-            this.labelDifficultyValue.AutoSize = true;
-            this.labelDifficultyValue.Location = new System.Drawing.Point(170, 295);
-            this.labelDifficultyValue.Name = "labelDifficultyValue";
-            this.labelDifficultyValue.Size = new System.Drawing.Size(55, 16);
-            this.labelDifficultyValue.TabIndex = 8;
-            this.labelDifficultyValue.Text = "Medium";
-            // 
-            // labelCurrentRangeText
-            // 
-            this.labelCurrentRangeText.AutoSize = true;
-            this.labelCurrentRangeText.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCurrentRangeText.Location = new System.Drawing.Point(322, 53);
-            this.labelCurrentRangeText.Name = "labelCurrentRangeText";
-            this.labelCurrentRangeText.Size = new System.Drawing.Size(106, 16);
-            this.labelCurrentRangeText.TabIndex = 9;
-            this.labelCurrentRangeText.Text = "Current Range";
-            // 
-            // labelRangeValue
-            // 
-            this.labelRangeValue.AutoSize = true;
-            this.labelRangeValue.Location = new System.Drawing.Point(356, 75);
-            this.labelRangeValue.Name = "labelRangeValue";
-            this.labelRangeValue.Size = new System.Drawing.Size(38, 16);
-            this.labelRangeValue.TabIndex = 10;
-            this.labelRangeValue.Text = "1 - 50";
+            this.labelMaxGuesses.AutoSize = true;
+            this.labelMaxGuesses.Location = new System.Drawing.Point(609, 295);
+            this.labelMaxGuesses.Name = "labelMaxGuesses";
+            this.labelMaxGuesses.Size = new System.Drawing.Size(116, 16);
+            this.labelMaxGuesses.TabIndex = 11;
+            this.labelMaxGuesses.Text = "labelMaxGuesses";
             // 
             // FormMain
             // 
@@ -362,6 +373,7 @@
         private System.Windows.Forms.Label labelDifficulty2;
         private System.Windows.Forms.Label labelRangeValue;
         private System.Windows.Forms.Label labelCurrentRangeText;
+        private System.Windows.Forms.Label labelMaxGuesses;
     }
 }
 
