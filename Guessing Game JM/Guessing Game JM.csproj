@@ -87,5 +87,8 @@
   <ItemGroup>
     <Folder Include="Properties\DataSources\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\question_marks.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -33,13 +33,12 @@
             this.buttonStart = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
             this.panelSettings = new System.Windows.Forms.Panel();
-            this.labelSettingsMenu = new System.Windows.Forms.Label();
-            this.labelDifficulty = new System.Windows.Forms.Label();
-            this.comboBoxDifficulty = new System.Windows.Forms.ComboBox();
-            this.buttonCancel = new System.Windows.Forms.Button();
-            this.buttonSettingsAccept = new System.Windows.Forms.Button();
-            this.pictureBoxSettings = new System.Windows.Forms.PictureBox();
+            this.panelHighScores = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.buttonHighScoresMainMenu = new System.Windows.Forms.Button();
+            this.buttonHighScores = new System.Windows.Forms.Button();
             this.panelMain = new System.Windows.Forms.Panel();
+            this.labelMaxGuesses = new System.Windows.Forms.Label();
             this.labelRangeValue = new System.Windows.Forms.Label();
             this.labelCurrentRangeText = new System.Windows.Forms.Label();
             this.labelDifficultyValue = new System.Windows.Forms.Label();
@@ -51,10 +50,20 @@
             this.buttonGuess = new System.Windows.Forms.Button();
             this.textBoxGuess = new System.Windows.Forms.TextBox();
             this.textBoxResponse = new System.Windows.Forms.TextBox();
-            this.labelMaxGuesses = new System.Windows.Forms.Label();
+            this.labelSettingsMenu = new System.Windows.Forms.Label();
+            this.labelDifficulty = new System.Windows.Forms.Label();
+            this.comboBoxDifficulty = new System.Windows.Forms.ComboBox();
+            this.buttonCancel = new System.Windows.Forms.Button();
+            this.buttonSettingsAccept = new System.Windows.Forms.Button();
+            this.pictureBoxSettings = new System.Windows.Forms.PictureBox();
+            this.pictureBoxQuestionMarks = new System.Windows.Forms.PictureBox();
+            this.dataGridViewHighScores = new System.Windows.Forms.DataGridView();
             this.panelSettings.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSettings)).BeginInit();
+            this.panelHighScores.SuspendLayout();
             this.panelMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSettings)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxQuestionMarks)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHighScores)).BeginInit();
             this.SuspendLayout();
             // 
             // labelTitle
@@ -112,78 +121,55 @@
             this.panelSettings.Controls.Add(this.comboBoxDifficulty);
             this.panelSettings.Controls.Add(this.buttonCancel);
             this.panelSettings.Controls.Add(this.buttonSettingsAccept);
-            this.panelSettings.Location = new System.Drawing.Point(3, 70);
+            this.panelSettings.Location = new System.Drawing.Point(2, 73);
             this.panelSettings.Name = "panelSettings";
             this.panelSettings.Size = new System.Drawing.Size(770, 594);
             this.panelSettings.TabIndex = 5;
             this.panelSettings.Visible = false;
             // 
-            // labelSettingsMenu
+            // panelHighScores
             // 
-            this.labelSettingsMenu.AutoSize = true;
-            this.labelSettingsMenu.Font = new System.Drawing.Font("Atlanta", 19.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSettingsMenu.Location = new System.Drawing.Point(265, 99);
-            this.labelSettingsMenu.Name = "labelSettingsMenu";
-            this.labelSettingsMenu.Size = new System.Drawing.Size(240, 44);
-            this.labelSettingsMenu.TabIndex = 5;
-            this.labelSettingsMenu.Text = "Settings Menu";
+            this.panelHighScores.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelHighScores.Controls.Add(this.dataGridViewHighScores);
+            this.panelHighScores.Controls.Add(this.label6);
+            this.panelHighScores.Controls.Add(this.buttonHighScoresMainMenu);
+            this.panelHighScores.Location = new System.Drawing.Point(2, 57);
+            this.panelHighScores.Name = "panelHighScores";
+            this.panelHighScores.Size = new System.Drawing.Size(767, 597);
+            this.panelHighScores.TabIndex = 9;
+            this.panelHighScores.Visible = false;
             // 
-            // labelDifficulty
+            // label6
             // 
-            this.labelDifficulty.AutoSize = true;
-            this.labelDifficulty.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDifficulty.Location = new System.Drawing.Point(295, 228);
-            this.labelDifficulty.Name = "labelDifficulty";
-            this.labelDifficulty.Size = new System.Drawing.Size(181, 22);
-            this.labelDifficulty.TabIndex = 4;
-            this.labelDifficulty.Text = "Select Difficulty Level";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(593, 295);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(0, 16);
+            this.label6.TabIndex = 6;
             // 
-            // comboBoxDifficulty
+            // buttonHighScoresMainMenu
             // 
-            this.comboBoxDifficulty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxDifficulty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxDifficulty.FormattingEnabled = true;
-            this.comboBoxDifficulty.Items.AddRange(new object[] {
-            "Easy",
-            "Normal",
-            "Hard"});
-            this.comboBoxDifficulty.Location = new System.Drawing.Point(308, 263);
-            this.comboBoxDifficulty.Name = "comboBoxDifficulty";
-            this.comboBoxDifficulty.Size = new System.Drawing.Size(154, 24);
-            this.comboBoxDifficulty.TabIndex = 3;
+            this.buttonHighScoresMainMenu.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.buttonHighScoresMainMenu.Location = new System.Drawing.Point(332, 470);
+            this.buttonHighScoresMainMenu.Name = "buttonHighScoresMainMenu";
+            this.buttonHighScoresMainMenu.Size = new System.Drawing.Size(90, 48);
+            this.buttonHighScoresMainMenu.TabIndex = 4;
+            this.buttonHighScoresMainMenu.Text = "&Main Menu";
+            this.buttonHighScoresMainMenu.UseVisualStyleBackColor = true;
+            this.buttonHighScoresMainMenu.Click += new System.EventHandler(this.buttonHighScoreMainMenu_Click);
             // 
-            // buttonCancel
+            // buttonHighScores
             // 
-            this.buttonCancel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonCancel.Location = new System.Drawing.Point(344, 454);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancel.TabIndex = 2;
-            this.buttonCancel.Text = "&Cancel";
-            this.buttonCancel.UseVisualStyleBackColor = true;
-            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
-            // 
-            // buttonSettingsAccept
-            // 
-            this.buttonSettingsAccept.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonSettingsAccept.Location = new System.Drawing.Point(334, 390);
-            this.buttonSettingsAccept.Name = "buttonSettingsAccept";
-            this.buttonSettingsAccept.Size = new System.Drawing.Size(100, 41);
-            this.buttonSettingsAccept.TabIndex = 1;
-            this.buttonSettingsAccept.Text = "&Accept";
-            this.buttonSettingsAccept.UseVisualStyleBackColor = true;
-            this.buttonSettingsAccept.Click += new System.EventHandler(this.buttonSettingsAccept_Click);
-            // 
-            // pictureBoxSettings
-            // 
-            this.pictureBoxSettings.Image = global::Guessing_Game_JM.Properties.Resources.settings;
-            this.pictureBoxSettings.Location = new System.Drawing.Point(205, 482);
-            this.pictureBoxSettings.Name = "pictureBoxSettings";
-            this.pictureBoxSettings.Size = new System.Drawing.Size(66, 65);
-            this.pictureBoxSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxSettings.TabIndex = 3;
-            this.pictureBoxSettings.TabStop = false;
-            this.pictureBoxSettings.Click += new System.EventHandler(this.pictureBoxSettings_Click);
+            this.buttonHighScores.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.buttonHighScores.Location = new System.Drawing.Point(313, 426);
+            this.buttonHighScores.Name = "buttonHighScores";
+            this.buttonHighScores.Size = new System.Drawing.Size(144, 34);
+            this.buttonHighScores.TabIndex = 8;
+            this.buttonHighScores.Text = "High Scores";
+            this.buttonHighScores.UseVisualStyleBackColor = true;
+            this.buttonHighScores.Click += new System.EventHandler(this.buttonHighScores_Click);
             // 
             // panelMain
             // 
@@ -199,11 +185,20 @@
             this.panelMain.Controls.Add(this.buttonGuess);
             this.panelMain.Controls.Add(this.textBoxGuess);
             this.panelMain.Controls.Add(this.textBoxResponse);
-            this.panelMain.Location = new System.Drawing.Point(12, 100);
+            this.panelMain.Location = new System.Drawing.Point(12, 90);
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(748, 567);
             this.panelMain.TabIndex = 6;
             this.panelMain.Visible = false;
+            // 
+            // labelMaxGuesses
+            // 
+            this.labelMaxGuesses.AutoSize = true;
+            this.labelMaxGuesses.Location = new System.Drawing.Point(609, 295);
+            this.labelMaxGuesses.Name = "labelMaxGuesses";
+            this.labelMaxGuesses.Size = new System.Drawing.Size(116, 16);
+            this.labelMaxGuesses.TabIndex = 11;
+            this.labelMaxGuesses.Text = "labelMaxGuesses";
             // 
             // labelRangeValue
             // 
@@ -311,14 +306,92 @@
             this.textBoxResponse.Size = new System.Drawing.Size(571, 193);
             this.textBoxResponse.TabIndex = 0;
             // 
-            // labelMaxGuesses
+            // labelSettingsMenu
             // 
-            this.labelMaxGuesses.AutoSize = true;
-            this.labelMaxGuesses.Location = new System.Drawing.Point(609, 295);
-            this.labelMaxGuesses.Name = "labelMaxGuesses";
-            this.labelMaxGuesses.Size = new System.Drawing.Size(116, 16);
-            this.labelMaxGuesses.TabIndex = 11;
-            this.labelMaxGuesses.Text = "labelMaxGuesses";
+            this.labelSettingsMenu.AutoSize = true;
+            this.labelSettingsMenu.Font = new System.Drawing.Font("Atlanta", 19.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSettingsMenu.Location = new System.Drawing.Point(265, 99);
+            this.labelSettingsMenu.Name = "labelSettingsMenu";
+            this.labelSettingsMenu.Size = new System.Drawing.Size(240, 44);
+            this.labelSettingsMenu.TabIndex = 5;
+            this.labelSettingsMenu.Text = "Settings Menu";
+            // 
+            // labelDifficulty
+            // 
+            this.labelDifficulty.AutoSize = true;
+            this.labelDifficulty.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDifficulty.Location = new System.Drawing.Point(295, 228);
+            this.labelDifficulty.Name = "labelDifficulty";
+            this.labelDifficulty.Size = new System.Drawing.Size(181, 22);
+            this.labelDifficulty.TabIndex = 4;
+            this.labelDifficulty.Text = "Select Difficulty Level";
+            // 
+            // comboBoxDifficulty
+            // 
+            this.comboBoxDifficulty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDifficulty.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxDifficulty.FormattingEnabled = true;
+            this.comboBoxDifficulty.Items.AddRange(new object[] {
+            "Easy",
+            "Normal",
+            "Hard"});
+            this.comboBoxDifficulty.Location = new System.Drawing.Point(308, 263);
+            this.comboBoxDifficulty.Name = "comboBoxDifficulty";
+            this.comboBoxDifficulty.Size = new System.Drawing.Size(154, 24);
+            this.comboBoxDifficulty.TabIndex = 3;
+            // 
+            // buttonCancel
+            // 
+            this.buttonCancel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.buttonCancel.Location = new System.Drawing.Point(344, 454);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancel.TabIndex = 2;
+            this.buttonCancel.Text = "&Cancel";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            // 
+            // buttonSettingsAccept
+            // 
+            this.buttonSettingsAccept.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.buttonSettingsAccept.Location = new System.Drawing.Point(334, 390);
+            this.buttonSettingsAccept.Name = "buttonSettingsAccept";
+            this.buttonSettingsAccept.Size = new System.Drawing.Size(100, 41);
+            this.buttonSettingsAccept.TabIndex = 1;
+            this.buttonSettingsAccept.Text = "&Accept";
+            this.buttonSettingsAccept.UseVisualStyleBackColor = true;
+            this.buttonSettingsAccept.Click += new System.EventHandler(this.buttonSettingsAccept_Click);
+            // 
+            // pictureBoxSettings
+            // 
+            this.pictureBoxSettings.Image = global::Guessing_Game_JM.Properties.Resources.settings;
+            this.pictureBoxSettings.Location = new System.Drawing.Point(205, 482);
+            this.pictureBoxSettings.Name = "pictureBoxSettings";
+            this.pictureBoxSettings.Size = new System.Drawing.Size(66, 65);
+            this.pictureBoxSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxSettings.TabIndex = 3;
+            this.pictureBoxSettings.TabStop = false;
+            this.pictureBoxSettings.Click += new System.EventHandler(this.pictureBoxSettings_Click);
+            // 
+            // pictureBoxQuestionMarks
+            // 
+            this.pictureBoxQuestionMarks.Image = global::Guessing_Game_JM.Properties.Resources.question_marks;
+            this.pictureBoxQuestionMarks.Location = new System.Drawing.Point(184, 140);
+            this.pictureBoxQuestionMarks.Name = "pictureBoxQuestionMarks";
+            this.pictureBoxQuestionMarks.Size = new System.Drawing.Size(390, 254);
+            this.pictureBoxQuestionMarks.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxQuestionMarks.TabIndex = 7;
+            this.pictureBoxQuestionMarks.TabStop = false;
+            // 
+            // dataGridViewHighScores
+            // 
+            this.dataGridViewHighScores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewHighScores.Location = new System.Drawing.Point(19, 33);
+            this.dataGridViewHighScores.Name = "dataGridViewHighScores";
+            this.dataGridViewHighScores.RowHeadersWidth = 51;
+            this.dataGridViewHighScores.RowTemplate.Height = 24;
+            this.dataGridViewHighScores.Size = new System.Drawing.Size(736, 414);
+            this.dataGridViewHighScores.TabIndex = 7;
             // 
             // FormMain
             // 
@@ -328,21 +401,29 @@
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.CancelButton = this.buttonExit;
             this.ClientSize = new System.Drawing.Size(772, 669);
-            this.Controls.Add(this.panelMain);
-            this.Controls.Add(this.buttonExit);
-            this.Controls.Add(this.pictureBoxSettings);
-            this.Controls.Add(this.buttonStart);
+            this.Controls.Add(this.panelHighScores);
             this.Controls.Add(this.labelAuthor);
+            this.Controls.Add(this.panelMain);
             this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.panelSettings);
+            this.Controls.Add(this.pictureBoxQuestionMarks);
+            this.Controls.Add(this.buttonStart);
+            this.Controls.Add(this.pictureBoxSettings);
+            this.Controls.Add(this.buttonExit);
+            this.Controls.Add(this.buttonHighScores);
             this.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.Name = "FormMain";
             this.Text = "Guessing Game";
+            this.Load += new System.EventHandler(this.FormMain_Load);
             this.panelSettings.ResumeLayout(false);
             this.panelSettings.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSettings)).EndInit();
+            this.panelHighScores.ResumeLayout(false);
+            this.panelHighScores.PerformLayout();
             this.panelMain.ResumeLayout(false);
             this.panelMain.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSettings)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxQuestionMarks)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHighScores)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -374,6 +455,12 @@
         private System.Windows.Forms.Label labelRangeValue;
         private System.Windows.Forms.Label labelCurrentRangeText;
         private System.Windows.Forms.Label labelMaxGuesses;
+        private System.Windows.Forms.PictureBox pictureBoxQuestionMarks;
+        private System.Windows.Forms.Button buttonHighScores;
+        private System.Windows.Forms.Panel panelHighScores;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button buttonHighScoresMainMenu;
+        private System.Windows.Forms.DataGridView dataGridViewHighScores;
     }
 }
 

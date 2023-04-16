@@ -1,15 +1,17 @@
-﻿using System;
+﻿using Guessing_Game_JM.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Guessing_Game_JM
-{
+{ 
     public partial class FormMain : Form
     {
 
@@ -18,7 +20,7 @@ namespace Guessing_Game_JM
         * CSS133
         * 4/12/2023
         * Simple Guessing Game :)
-        * 
+        * Saves high scores to a csv file
         * 
         * */
 
@@ -28,6 +30,14 @@ namespace Guessing_Game_JM
         private int guesses;
         // class level variable to store the max number of guesses
         int maxGuesses;
+        // class level array to store the easy high scores
+        int[] easyHighScores = new int[5];
+        // class level array to store the medium high scores
+        int[] normalHighScores = new int[5];
+        // class level array to store the hard high scores
+        int[] hardHighScores = new int[5];
+      
+        
 
 
         public FormMain()
@@ -49,15 +59,20 @@ namespace Guessing_Game_JM
         //*    Main Form   *//
         //////////////////////
 
-        private void MainForm_Load(object sender, EventArgs e)
+        private void FormMain_Load(object sender, EventArgs e)
         {
-            updateDifficulty();     
+            // Get high scores from csv file
+            readHighScores();
+            // This doesn't do anything for some reason when I put in readHighScores()
         }
 
 
         // Start button
         private void buttonStart_Click(object sender, EventArgs e)
         {
+            // Initialize the guessing game
+            guessingGameInitialize();
+
             // Toggle the visibility of the Main panel and bring to front
             panelMain.Visible = !panelMain.Visible;
             panelMain.BringToFront();
@@ -69,28 +84,58 @@ namespace Guessing_Game_JM
 
             // Set focus to the guess text box
             textBoxGuess.Focus();
-            
-            // Initialize the guessing game
-            guessingGameInitialize();
-
         }
 
         // Exit button
         private void buttonExit_Click(object sender, EventArgs e)
         {
+        
             // Exit the app
             this.Close();
             
+        }
+        // High Scores button
+        private void buttonHighScores_Click(object sender, EventArgs e)
+        {
+            // Read the high scores from the csv file and display them in th data table
+            readHighScores();
+
+
+            // Toggle the visibility of the HighScores panel and bring to front
+            panelHighScores.Visible = !panelHighScores.Visible;
+            panelHighScores.BringToFront();
+
+            // Set the FormMain accept button to the buttonGuess
+            this.AcceptButton = buttonHighScoresMainMenu;
+            // Set the FormMain cancel button to the buttonMainMenu
+            this.CancelButton = buttonHighScoresMainMenu;
+
+        }
+
+        //////////////////////
+        //* HIGH SCORES PANEL *//
+        //////////////////////
+        ///
+        // High Scores Main Menu button
+        private void buttonHighScoreMainMenu_Click(object sender, EventArgs e)
+        {
+            // Toggle the visibility of the HighScores panel
+            panelHighScores.Visible = !panelHighScores.Visible;
+            panelHighScores.SendToBack();
+            // Set the FormMain accept button to the buttonStart
+            this.AcceptButton = buttonStart;
+            // Set the FormMain cancel button to the buttonExit
+            this.CancelButton = buttonExit;
         }
 
         //////////////////////
         //* SETTINGS PANEL *//
         //////////////////////
-        
+
         // Settings button
         private void pictureBoxSettings_Click(object sender, EventArgs e)
         {
-            // Open a new form when user clicks the Settings button and bring to front
+            // Open the settings panel when user clicks the Settings button and bring to front
             panelSettings.Visible = !panelSettings.Visible;
             panelSettings.BringToFront();
 
@@ -116,6 +161,7 @@ namespace Guessing_Game_JM
 
             // Toggle the visibility of settings panel
             panelSettings.Visible = !panelSettings.Visible;
+            panelSettings.SendToBack();
 
             // Set the FormMain accept button to the buttonStart
             this.AcceptButton = buttonStart;
@@ -130,6 +176,7 @@ namespace Guessing_Game_JM
         {
             // Toggle the visibility of the Settings panel
             panelSettings.Visible = !panelSettings.Visible;
+            panelSettings.SendToBack();
 
             // Set the FormMain accept button back to Start
             this.AcceptButton = buttonStart;
@@ -148,6 +195,7 @@ namespace Guessing_Game_JM
         {
             // Toggle the visibility of the Main panel 
             panelMain.Visible = !panelMain.Visible;
+            panelMain.SendToBack();
 
             // Set the FormMain accept button back to Start
             this.AcceptButton = buttonStart;
@@ -174,6 +222,7 @@ namespace Guessing_Game_JM
             guessingGameGuess();
 
         }
+
 
 
         //////////////////////////////////
@@ -285,14 +334,183 @@ namespace Guessing_Game_JM
             {
                 // Add result message to the text box
                 textBoxResponse.AppendText($"{Environment.NewLine}~~Congratulations!~~ You guessed the number in {guesses} guesses.");
+                // Check for high score
+                if (updateHighScores(guesses))
+                {
+                    textBoxResponse.AppendText($"{Environment.NewLine}~~~~ NEW HIGH SCORE! ~~~~");
+                    // Write the high scores to the CSV file
+                    writeHighScores();
+                }
+                    
+                    
                 textBoxResponse.AppendText (Environment.NewLine + "To play again, press restart.");
                 // Disable the guess button and text box
                 buttonGuess.Enabled = false;
                 textBoxGuess.Enabled = false;
+                
             }
 
 
 
+        }
+
+        //////////////////////////////////
+        // High Scores helper functions //
+        //////////////////////////////////
+        
+        // Get the high scores from CSV file
+        private void readHighScores()
+        {
+            string filePath = Path.Combine(Application.StartupPath, "HighScores.csv");
+            if (!File.Exists(filePath))
+            {
+                return;
+            }
+
+            // Create a data table to hold the high scores
+            DataTable dataTable = new DataTable();
+
+            StreamReader sr = new StreamReader(filePath);
+            int columnCount = 0;
+            while (columnCount < 1)
+            {
+                string[] line = sr.ReadLine().Split(',');
+                if (line.Length == 3)
+                {
+                    // Add the high score to the data table
+                    dataTable.Columns.Add(line[0]);
+                    dataTable.Columns.Add(line[1]);
+                    dataTable.Columns.Add(line[2]);
+                    columnCount++;
+                }
+            }
+            
+            //while (!sr.EndOfStream)
+            //{
+            //    string[] line = sr.ReadLine().Split(',');
+            //    if (line.Length == 3)
+            //    {
+            //        // Add the high score to the data table
+            //        dataTable.Rows.Add(line);
+            //    }
+            //} 
+
+            
+
+
+            // Hard
+            for (int i = 0; i < hardHighScores.Length; i++)
+            {
+                string[] line = sr.ReadLine().Split(',');
+                if (int.TryParse(line[2], out int score))
+                {
+                    hardHighScores[i] = score;
+                    dataTable.Rows.Add(line);
+                }
+            }
+            // Normal
+            for (int i = 0; i < normalHighScores.Length; i++)
+            {
+                string[] line = sr.ReadLine().Split(',');
+                if (int.TryParse(line[2], out int score))
+                {
+                    normalHighScores[i] = score;
+                    dataTable.Rows.Add(line);
+
+                }
+            }
+            // Easy
+            for (int i = 0; i < easyHighScores.Length; i++)
+            {
+                string[] line = sr.ReadLine().Split(',');
+                if (int.TryParse(line[2], out int score))
+                {
+                    easyHighScores[i] = score;
+                    dataTable.Rows.Add(line);
+                }
+            }
+
+            dataGridViewHighScores.DataSource = dataTable;
+
+
+            sr.Close();
+        }
+
+        // Write high scores to CSV file
+        private void writeHighScores()
+        {
+            // Clear the contents of the HighScores.csv file
+            string filePath = Path.Combine(Application.StartupPath, "HighScores.csv");
+            if (File.Exists(filePath))
+                File.WriteAllText(filePath, "");
+            
+
+
+            // Get today's date as a string
+            string today = DateTime.Now.ToString("MM/dd/yyyy");
+
+
+            StreamWriter sw = new StreamWriter(filePath, true);
+
+            sw.WriteLine("Difficulty,Date,Score");
+
+            // Write the high scores to the csv file
+            //Hard
+            for (int i = 0; i < hardHighScores.Length; i++)
+            {
+                sw.WriteLine("Hard," + today + "," + hardHighScores[i]);
+            }
+            //Normal
+            for (int i = 0; i < normalHighScores.Length; i++)
+            {
+                sw.WriteLine("Normal," + today + "," + normalHighScores[i]);
+            }
+            //Easy
+            for (int i = 0; i < easyHighScores.Length; i++)
+            {
+                sw.WriteLine("Easy," + today + "," + easyHighScores[i]);
+            }
+            sw.Close();
+
+        }
+
+        // Update high score arrays and return true if new high score
+        private bool updateHighScores(int guesses)
+        {
+            string difficulty = Properties.Settings.Default.Difficulty;
+            int[] currentHighScores = new int[5];
+            bool isNewHighScore = false;
+
+            // Get the array of the current difficulty high scores
+            if (difficulty == "Easy")
+                currentHighScores = easyHighScores;
+            else if (difficulty == "Normal")
+                currentHighScores = normalHighScores;
+            else if (difficulty == "Hard")
+                currentHighScores = hardHighScores;
+
+
+
+            // Loop through each number in the current HighScores and see if my score is lower
+            for (int i = 0; i < currentHighScores.Length; i++)
+            {
+                if (currentHighScores[i] < guesses)
+                {
+                    currentHighScores[i] = guesses;
+                    isNewHighScore = true;
+                    // Set current high scores to the corresponding high scores array
+                    if (difficulty == "Easy")
+                        easyHighScores = currentHighScores;
+                    else if (difficulty == "Normal")
+                        normalHighScores = currentHighScores;
+                    else if (difficulty == "Hard")
+                        hardHighScores = currentHighScores;
+                    
+                    break;
+                }
+            }
+           
+            return isNewHighScore;
         }
 
     }
