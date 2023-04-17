@@ -21,7 +21,9 @@ namespace Guessing_Game_JM
          * CSS133
          * 4/16/2023
          * Simple Guessing Game :)
-         * Saves and loads high scores to a csv file
+         * Guess a number between 3 different ranges, selectable by the user.
+         * Up to 3 High Scores are saved for each difficulty.
+         * Saves and loads high scores to a csv file.
          * 
          */
 
@@ -62,15 +64,15 @@ namespace Guessing_Game_JM
         private int randomNumber; // class level variable to store the random number
         private int guesses; // class level variable to store the number of guesses
         int maxGuesses; // class level variable to store the max number of guesses
-        string playerName = "John"; // class level variable to store the player name
 
-        // May not need these
+        // High Score Lists
         List<HighScoreEntry> easyHighScores = new List<HighScoreEntry>(); // class level List to store the easy high scores
         List<HighScoreEntry> normalHighScores = new List<HighScoreEntry>(); // class level List to store the medium high scores
         List<HighScoreEntry> hardHighScores = new List<HighScoreEntry>(); // class level List to store the hard high scores
 
         // Create a dictionary to store the high scores by difficulty, each difficulty will have a list of high scores
-        Dictionary<int, List<HighScoreEntry>> highScores = new Dictionary<int, List<HighScoreEntry>>();
+        // Currently unused
+        // Dictionary<int, List<HighScoreEntry>> highScores = new Dictionary<int, List<HighScoreEntry>>();
 
 
         public FormMain()
@@ -160,8 +162,8 @@ namespace Guessing_Game_JM
             panelSettings.Visible = !panelSettings.Visible;
             panelSettings.BringToFront();
 
-            // Get the difficulty
-            updateDifficulty();
+            // Get the difficulty and Player Name from settings
+            updateSettings();
 
             // Set the FormMain accept button to the buttonSettingsAccept
             this.AcceptButton = buttonSettingsAccept;
@@ -176,8 +178,9 @@ namespace Guessing_Game_JM
             // Get the selected value from the ComboBox control
             string currentDifficulty = comboBoxDifficulty.SelectedItem.ToString();
 
-            // Save the selected value to settings
+            // Save options to settings and update player name
             Properties.Settings.Default.Difficulty = currentDifficulty;
+            Properties.Settings.Default.PlayerName = textBoxPlayerName.Text;
             Properties.Settings.Default.Save();
 
             // Toggle the visibility of settings panel
@@ -558,7 +561,7 @@ namespace Guessing_Game_JM
             else if (difficulty == "Hard")
                 currentHighScores = hardHighScores;
 
-            // Check if there's room for a new high score
+            // Check if there's room for a new high score (Max 3 per difficulty)
             if (currentHighScores.Count < 3)
             {
                 isNewHighScore = true;
@@ -566,11 +569,9 @@ namespace Guessing_Game_JM
                 HighScoreEntry highScoreEntry = new HighScoreEntry();
                 highScoreEntry.Difficulty = difficulty;
                 highScoreEntry.Score = guesses.ToString();
-                highScoreEntry.PlayerName = playerName;
+                highScoreEntry.PlayerName = Properties.Settings.Default.PlayerName;
                 highScoreEntry.Timestamp = today;
                 currentHighScores.Add(highScoreEntry);
-                // Early return since we had room to add a new high score
-                return isNewHighScore;
             }
             else
             {
@@ -580,17 +581,25 @@ namespace Guessing_Game_JM
                     if (int.Parse(currentHighScores[i].Score) > guesses)
                     {
                         isNewHighScore = true;
-                        currentHighScores[i].Difficulty = difficulty;
-                        currentHighScores[i].Score = guesses.ToString();
-                        currentHighScores[i].PlayerName = playerName;
-                        currentHighScores[i].Timestamp = today;
-
-
+                        // Prepare high score entry
+                        HighScoreEntry highScoreEntry = new HighScoreEntry();
+                        highScoreEntry.Difficulty = difficulty;
+                        highScoreEntry.Score = guesses.ToString();
+                        highScoreEntry.PlayerName = Properties.Settings.Default.PlayerName;
+                        highScoreEntry.Timestamp = today;
+                        // Insert at the current index to shift the list down
+                        currentHighScores.Insert(i, highScoreEntry);
+                        // Fourth place removed from the list
+                        currentHighScores.RemoveAt(currentHighScores.Count - 1);
                         // Break out of the loop since we found a lower score
                         break;
                     }
                 }
             }
+
+            // Sort high scores
+            currentHighScores = currentHighScores.OrderBy(score => score.Score).ToList();
+
 
             // Set current high scores to the corresponding high scores list
             if (difficulty == "Easy")
@@ -607,12 +616,13 @@ namespace Guessing_Game_JM
 
 
         // Helper function to update the difficulty displayed in the ComboBox control
-        private void updateDifficulty()
+        private void updateSettings()
         {
             // Set the selected index of the ComboBox control to the difficulty level
             // After retrieving the default difficulty level from the settings
             string defaultDifficulty = Properties.Settings.Default.Difficulty;
             comboBoxDifficulty.SelectedIndex = comboBoxDifficulty.Items.IndexOf(defaultDifficulty);
+            textBoxPlayerName.Text = Properties.Settings.Default.PlayerName;
         }
 
     }
