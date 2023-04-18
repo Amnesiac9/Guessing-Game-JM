@@ -47,7 +47,7 @@ namespace Guessing_Game_JM
          */
 
         // High Score class structure
-        public class HighScoreEntry
+        private class HighScoreEntry
         {
             public string Difficulty { get; set; }
             public string Score { get; set; }
@@ -55,9 +55,6 @@ namespace Guessing_Game_JM
             public string Timestamp { get; set; }
 
         }
-
-       
-
 
 
         // Global Variables
@@ -374,6 +371,7 @@ namespace Guessing_Game_JM
         //////////////////////////////////
 
         // Read high scores to data table
+        // Could change this to read from my lists instead of a CSV file
         private void readHighScoresToDataTable()
         {
             // Return if the file can't be found
@@ -386,42 +384,23 @@ namespace Guessing_Game_JM
             // Create a data table to hold the high scores
             DataTable dataTable = new DataTable();
 
+            // Create a stream reader to read the file
             StreamReader sr = new StreamReader(filePath);
-            int columnCount = 0;
-            while (columnCount < 4)
-            {
-                string[] line = sr.ReadLine().Split(',');
-                if (line.Length == 4)
-                {
-                    // Add the header columns
-                    dataTable.Columns.Add(line[0]);
-                    dataTable.Columns.Add(line[1]);
-                    dataTable.Columns.Add(line[2]);
-                    dataTable.Columns.Add(line[3]);
-                    columnCount = 4;
-                }
-            }
 
-            // Hard
-            // Loop through the lines in the file and add the scores to my data table
-            for (int i = 0; i < hardHighScores.Count; i++)
+            // Read the header line
+            string[] line = sr.ReadLine().Split(',');
+            // Add the header columns
+            dataTable.Columns.Add(line[0]);
+            dataTable.Columns.Add(line[1]);
+            dataTable.Columns.Add(line[2]);
+            dataTable.Columns.Add(line[3]);
+
+            // Read the rest of the lines 
+            while (!sr.EndOfStream)
             {
-                // Read line from file
-                string[] line = sr.ReadLine().Split(',');
-                dataTable.Rows.Add(line);
-            }
-            // Normal
-            for (int i = 0; i < normalHighScores.Count; i++)
-            {
-                // Read line from file
-                string[] line = sr.ReadLine().Split(',');
-                dataTable.Rows.Add(line);
-            }
-            // Easy
-            for (int i = 0; i < easyHighScores.Count; i++)
-            {
-                // Read line from file
-                string[] line = sr.ReadLine().Split(',');
+                // Read each line from file
+                line = sr.ReadLine().Split(',');
+                // Add each line to the data table
                 dataTable.Rows.Add(line);
             }
 
@@ -505,9 +484,6 @@ namespace Guessing_Game_JM
             {
                 File.WriteAllText(filePath, "");
             }
-                
-            
-
 
             // Create new stream writer
             StreamWriter sw = new StreamWriter(filePath, true);
@@ -533,7 +509,6 @@ namespace Guessing_Game_JM
                 sw.WriteLine(easyHighScores[i].Difficulty + "," + easyHighScores[i].Score + "," + easyHighScores[i].PlayerName + "," + easyHighScores[i].Timestamp);
             }
 
-
             sw.Close();
 
         }
@@ -549,9 +524,8 @@ namespace Guessing_Game_JM
             string today = DateTime.Now.ToString("MM/dd/yyyy");
             // Declare placeholder high score entry
             List<HighScoreEntry> currentHighScores = new List<HighScoreEntry>();
-
+            // Declare bool to return
             bool isNewHighScore = false;
-
 
             // Get the array of the current difficulty high scores
             if (difficulty == "Easy")
@@ -597,9 +571,8 @@ namespace Guessing_Game_JM
                 }
             }
 
-            // Sort high scores
+            // Sort high scores using LINQ
             currentHighScores = currentHighScores.OrderBy(score => score.Score).ToList();
-
 
             // Set current high scores to the corresponding high scores list
             if (difficulty == "Easy")
