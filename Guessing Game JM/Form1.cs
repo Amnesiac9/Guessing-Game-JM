@@ -21,11 +21,11 @@ namespace Guessing_Game_JM
          * 
          * John Moreau
          * CSS133
-         * 4/17/2023
+         * 4/18/2023
          * Simple Guessing Game :)
          * Guess a number between 3 different ranges, selectable by the user.
          * Up to 3 High Scores are saved for each difficulty.
-         * Saves and loads high scores to a csv file.
+         * Saves and loads high scores to an xml file.
          * 
          */
 
@@ -379,10 +379,10 @@ namespace Guessing_Game_JM
                 // Add result message to the text box
                 textBoxResponse.AppendText($"{Environment.NewLine}~~Congratulations!~~ You guessed the number in {guesses} guesses.");
                 // Check for high score
-                if (updateHighScores(guesses))
+                if (checkHighScores(guesses))
                 {
                     textBoxResponse.AppendText($"{Environment.NewLine}~~~~ NEW HIGH SCORE! ~~~~");
-                    // Write the high scores to the CSV file
+                    // Write the high scores to file
                     writeHighScoresXML();
                 }
 
@@ -456,7 +456,7 @@ namespace Guessing_Game_JM
         }
 
 
-        // Get the high scores from XML file
+        // Read the high scores from XML file
         private void readHighScoresXML()
         {
             // Get filepath and check if the file exists
@@ -489,9 +489,14 @@ namespace Guessing_Game_JM
                 {
                     normalHighScores.Add(score);
                 }
-                else // Hard
+                else if (score.Difficulty == "Hard")
                 {
                     hardHighScores.Add(score);
+                }
+                else
+                {
+                    // Show error window
+                    MessageBox.Show("Error reading high scores from file.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
             }
@@ -524,7 +529,7 @@ namespace Guessing_Game_JM
         }
 
         // If new high score update high score lists and return true 
-        private bool updateHighScores(int guesses)
+        private bool checkHighScores(int guesses)
         {
             // Declare bool to return
             bool isNewHighScore = false;
