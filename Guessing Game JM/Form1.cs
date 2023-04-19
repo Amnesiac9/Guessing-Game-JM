@@ -9,9 +9,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 
 namespace Guessing_Game_JM
-{ 
+{
     public partial class FormMain : Form
     {
 
@@ -19,9 +20,11 @@ namespace Guessing_Game_JM
          * 
          * John Moreau
          * CSS133
-         * 4/16/2023
+         * 4/17/2023
          * Simple Guessing Game :)
-         * Saves and loads high scores to a csv file
+         * Guess a number between 3 different ranges, selectable by the user.
+         * Up to 3 High Scores are saved for each difficulty.
+         * Saves and loads high scores to a csv file.
          * 
          */
 
@@ -32,23 +35,56 @@ namespace Guessing_Game_JM
          * Writing data to a Grid View
          * https://stackoverflow.com/questions/33494332/reading-and-displaying-data-from-csv-file-on-windows-form-application-using-c-sh
          * 
-         * Reading and writing to a file
+         * Reading and writing to a file, class and list syntax
          * https://www.geeksforgeeks.org/how-to-read-and-write-a-text-file-in-c-sharp/
          * https://stackoverflow.com/questions/18757097/writing-data-into-csv-file-in-c-sharp
-         * I think I could improve this by using a class and list to store the high scores
-         * and using csvhelper as shown here: 
          * https://www.youtube.com/watch?v=IT8bT3NsaRg
          * https://www.youtube.com/watch?v=fRaSeLYYrcQ
          * 
+         * Dictionaries and lists
+         * https://stackoverflow.com/questions/7914830/what-is-the-difference-between-list-and-dictionary-in-c-sharp
+         * https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/tutorials/arrays-and-collections
+         * 
          */
 
-        // Global Variables
+        // High Score class structure
+        private class HighScoreEntry
+        {
+            public string Difficulty { get; set; }
+            public string Score { get; set; }
+            public string PlayerName { get; set; }
+            public string Timestamp { get; set; }
+
+        }
+
+        // Easy method/constructor to create a new HighScoreEntry
+        // Since the only thing that changes during the game is the number of guesses, we can just pass that in
+        private HighScoreEntry newHighScoreEntry(int guesses)
+        {
+            HighScoreEntry highScoreEntry = new HighScoreEntry
+            {
+                Difficulty = Properties.Settings.Default.Difficulty,
+                Score = guesses.ToString(),
+                PlayerName = Properties.Settings.Default.PlayerName,
+                Timestamp = DateTime.Now.ToString("M/dd/yyyy")
+            };
+
+            return highScoreEntry;
+        }
+
+
+        // Global Variables - What's a good way to avoid class level variables in this case?
         private int randomNumber; // class level variable to store the random number
         private int guesses; // class level variable to store the number of guesses
         int maxGuesses; // class level variable to store the max number of guesses
-        int[] easyHighScores = new int[5]; // class level array to store the easy high scores
-        int[] normalHighScores = new int[5]; // class level array to store the medium high scores
-        int[] hardHighScores = new int[5]; // class level array to store the hard high scores
+
+        // High Score Lists
+        List<HighScoreEntry> easyHighScores = new List<HighScoreEntry>(); // class level List to store the easy high scores
+        List<HighScoreEntry> normalHighScores = new List<HighScoreEntry>(); // class level List to store the normal high scores
+        List<HighScoreEntry> hardHighScores = new List<HighScoreEntry>(); // class level List to store the hard high scores
+
+        // Store a list for each difficulty inside of a dictionary?
+        // Dictionary<int, List<HighScoreEntry>> highScores = new Dictionary<int, List<HighScoreEntry>>();
 
 
         public FormMain()
@@ -88,15 +124,16 @@ namespace Guessing_Game_JM
         private void buttonExit_Click(object sender, EventArgs e)
         {
             // Close the app
-            this.Close(); 
+            this.Close();
         }
 
         // High Scores button
         private void buttonHighScores_Click(object sender, EventArgs e)
         {
-            // Read the high scores from the csv file and display them in th data table
-            readHighScores();
-
+            // Read the high scores from the csv file and display them in the data table
+            // TODO: Update this to read from the list instead of the csv file
+            //readHighScoresToDataTable();
+            readHighScoresToTable();
 
             // Toggle the visibility of the HighScores panel and bring to front
             panelHighScores.Visible = !panelHighScores.Visible;
@@ -138,8 +175,8 @@ namespace Guessing_Game_JM
             panelSettings.Visible = !panelSettings.Visible;
             panelSettings.BringToFront();
 
-            // Get the difficulty
-            updateDifficulty();
+            // Get the difficulty and Player Name from settings
+            updateSettings();
 
             // Set the FormMain accept button to the buttonSettingsAccept
             this.AcceptButton = buttonSettingsAccept;
@@ -154,8 +191,9 @@ namespace Guessing_Game_JM
             // Get the selected value from the ComboBox control
             string currentDifficulty = comboBoxDifficulty.SelectedItem.ToString();
 
-            // Save the selected value to settings
+            // Save options to settings and update player name
             Properties.Settings.Default.Difficulty = currentDifficulty;
+            Properties.Settings.Default.PlayerName = textBoxPlayerName.Text;
             Properties.Settings.Default.Save();
 
             // Toggle the visibility of settings panel
@@ -215,10 +253,14 @@ namespace Guessing_Game_JM
 
         // Guess button
         private void buttonGuess_Click(object sender, EventArgs e)
-        {   
+        {
 
             // Make guess
             guessingGameGuess();
+            // Clear the guess text box
+            textBoxGuess.Text = "";
+            // Set focus to the guess text box
+            textBoxGuess.Focus();
 
         }
 
@@ -256,7 +298,7 @@ namespace Guessing_Game_JM
                 labelDifficultyValue.ForeColor = Color.Black;
                 labelRangeValue.Text = "1 - 25";
 
-            } 
+            }
             else // Hard
             {
                 // Set the maximum value to 50
@@ -267,7 +309,7 @@ namespace Guessing_Game_JM
                 labelRangeValue.Text = "1 - 50";
 
             }
-            
+
             Random random = new Random(); // Create a random number generator
             this.randomNumber = random.Next(1, max); // Generate a random number between 1 and the maximum value
 
@@ -277,9 +319,9 @@ namespace Guessing_Game_JM
         }
 
 
-        ///////////////////////////////
-        // Main Game, handle guesses //
-        ///////////////////////////////
+        /////////////////////////////////
+        //* Main Game, handle guesses *//
+        /////////////////////////////////
         private void guessingGameGuess()
         {
             int guess;
@@ -293,12 +335,12 @@ namespace Guessing_Game_JM
                 return; // Exit the method
             }
 
-            
+
             guesses++; // Increment the number of guesses
             labelGuessCount.Text = $"{guesses}"; // Update the guess count label
 
             // Check for loss
-            if (guesses >= maxGuesses && guess != randomNumber) 
+            if (guesses >= maxGuesses && guess != randomNumber)
             {
                 // Add result message to the text box
                 textBoxResponse.AppendText($"{Environment.NewLine}~~You Lose!~~ The number was {randomNumber}.");
@@ -308,7 +350,7 @@ namespace Guessing_Game_JM
                 textBoxGuess.Enabled = false;
             }
             // Check if the guess is too high
-            else if (guess > randomNumber) 
+            else if (guess > randomNumber)
             {
                 // Add result message to the text box
                 string resultMessage = "Too High, try again!";
@@ -339,18 +381,76 @@ namespace Guessing_Game_JM
                 textBoxGuess.Enabled = false;
 
                 // Play again?
-                textBoxResponse.AppendText (Environment.NewLine + "To play again, press restart.");
-    
+                textBoxResponse.AppendText(Environment.NewLine + "To play again, press restart.");
+
             }
         }
 
         //////////////////////////////////
         // High Scores helper functions //
         //////////////////////////////////
-        
-        // Get the high scores from CSV file
-        private void readHighScores()
+
+
+        // Read high scores from lists into data table
+        private void readHighScoresToTable()
         {
+            // Create a data table to hold the high scores
+            DataTable dataTable = new DataTable();
+
+            // Add header columns "Difficulty, Score, PlayerName, Date"
+            dataTable.Columns.Add("Difficulty");
+            dataTable.Columns.Add("Score");
+            dataTable.Columns.Add("PlayerName");
+            dataTable.Columns.Add("Date");
+
+            // Hard
+            foreach (HighScoreEntry entry in hardHighScores)
+            {
+                DataRow row = dataTable.NewRow();
+                {
+                    row[0] = entry.Difficulty;
+                    row[1] = entry.Score;
+                    row[2] = entry.PlayerName;
+                    row[3] = entry.Timestamp;
+                    dataTable.Rows.Add(row);
+                }
+            }
+            // Normal
+            foreach (HighScoreEntry entry in normalHighScores)
+            {
+                DataRow row = dataTable.NewRow();
+                {
+                    row[0] = entry.Difficulty;
+                    row[1] = entry.Score;
+                    row[2] = entry.PlayerName;
+                    row[3] = entry.Timestamp;
+                    dataTable.Rows.Add(row);
+                }
+            }
+            // Easy
+            foreach (HighScoreEntry entry in easyHighScores)
+            {
+                DataRow row = dataTable.NewRow();
+                {
+                    row[0] = entry.Difficulty;
+                    row[1] = entry.Score;
+                    row[2] = entry.PlayerName;
+                    row[3] = entry.Timestamp;
+                    dataTable.Rows.Add(row);
+                }
+            }
+
+            // Set the data source for the data grid view to the data we just read in
+            dataGridViewHighScores.DataSource = dataTable;
+
+        }
+
+        // Read high scores to data table
+        // Could change this to read from my lists instead of a CSV file
+        // DONE - Safe to remove. Leave here for Teacher to see =)
+        private void readHighScoresToTableFromCSV()
+        {
+            // Return if the file can't be found
             string filePath = Path.Combine(Application.StartupPath, "HighScores.csv");
             if (!File.Exists(filePath))
             {
@@ -360,55 +460,24 @@ namespace Guessing_Game_JM
             // Create a data table to hold the high scores
             DataTable dataTable = new DataTable();
 
+            // Create a stream reader to read the file
             StreamReader sr = new StreamReader(filePath);
-            int columnCount = 0;
-            while (columnCount < 1)
-            {
-                string[] line = sr.ReadLine().Split(',');
-                if (line.Length == 3)
-                {
-                    // Add the high score to the data table
-                    dataTable.Columns.Add(line[0]);
-                    dataTable.Columns.Add(line[1]);
-                    dataTable.Columns.Add(line[2]);
-                    columnCount = 1;
-                }
-            }
 
-            // Hard
-            // Loop through the lines in the file and add the scores to my arrays and data table
-            for (int i = 0; i < hardHighScores.Length; i++)
+            // Read the header line
+            string[] line = sr.ReadLine().Split(',');
+            // Add the header columns
+            dataTable.Columns.Add(line[0]);
+            dataTable.Columns.Add(line[1]);
+            dataTable.Columns.Add(line[2]);
+            dataTable.Columns.Add(line[3]);
+
+            // Read the rest of the lines 
+            while (!sr.EndOfStream)
             {
-                string[] line = sr.ReadLine().Split(',');
-                if (int.TryParse(line[2], out int score))
-                {
-                    // Only add the high score if it is greater than 0 or an existing score
-                    hardHighScores[i] = score;
-                    if (score > 0)
-                        dataTable.Rows.Add(line);
-                }
-            }
-            // Normal
-            for (int i = 0; i < normalHighScores.Length; i++)
-            {
-                string[] line = sr.ReadLine().Split(',');
-                if (int.TryParse(line[2], out int score))
-                {
-                    normalHighScores[i] = score;
-                    if (score > 0)
-                        dataTable.Rows.Add(line);
-                }
-            }
-            // Easy
-            for (int i = 0; i < easyHighScores.Length; i++)
-            {
-                string[] line = sr.ReadLine().Split(',');
-                if (int.TryParse(line[2], out int score))
-                {
-                    easyHighScores[i] = score;
-                    if (score > 0)
-                        dataTable.Rows.Add(line);
-                }
+                // Read each line from file
+                line = sr.ReadLine().Split(',');
+                // Add each line to the data table
+                dataTable.Rows.Add(line);
             }
 
             // Set the data source for the data grid view to the data we just read in
@@ -416,9 +485,59 @@ namespace Guessing_Game_JM
 
             // Close the stream reader
             sr.Close();
+
         }
 
+        // Get the high scores from CSV file
+        private void readHighScores()
+        {
+            string filePath = Path.Combine(Application.StartupPath, "HighScores.csv");
+            if (!File.Exists(filePath))
+            {
+                return;
+            }
 
+            // Open Stream Reader
+            StreamReader sr = new StreamReader(filePath);
+
+            // Loop through lines and add to correct difficulty list
+            while (!sr.EndOfStream)
+            {   
+                // Read line from file
+                string[] line = sr.ReadLine().Split(',');
+                // Prepare high score entry
+                HighScoreEntry highScoreEntry = new HighScoreEntry();
+
+                // Check for difficulty
+                if (line[0] == "Easy")
+                {
+                    highScoreEntry.Difficulty = line[0];
+                    highScoreEntry.Score = line[1];
+                    highScoreEntry.PlayerName = line[2];
+                    highScoreEntry.Timestamp = line[3];
+                    easyHighScores.Add(highScoreEntry);
+                }
+                else if (line[0] == "Normal")
+                {
+                    highScoreEntry.Difficulty = line[0];
+                    highScoreEntry.Score = line[1];
+                    highScoreEntry.PlayerName = line[2];
+                    highScoreEntry.Timestamp = line[3];
+                    normalHighScores.Add(highScoreEntry);
+                }
+                else if (line[0] == "Hard")
+                {
+                    highScoreEntry.Difficulty = line[0];
+                    highScoreEntry.Score = line[1];
+                    highScoreEntry.PlayerName = line[2];
+                    highScoreEntry.Timestamp = line[3];
+                    hardHighScores.Add(highScoreEntry);
+                }
+            }
+
+            // Close the stream reader
+            sr.Close();
+        }
 
         // Write high scores to CSV file
         private void writeHighScores()
@@ -426,84 +545,133 @@ namespace Guessing_Game_JM
             // Clear the contents of the HighScores.csv file if it exists
             string filePath = Path.Combine(Application.StartupPath, "HighScores.csv");
             if (File.Exists(filePath))
+            {
                 File.WriteAllText(filePath, "");
-            
-            // Get today's date as a string
-            string today = DateTime.Now.ToString("MM/dd/yyyy");
+            }
 
             // Create new stream writer
             StreamWriter sw = new StreamWriter(filePath, true);
-            sw.WriteLine("Difficulty,Date,Score");
+
+            //Headers
+            sw.WriteLine("Difficulty, Score, PlayerName, Date");
 
             // Write the high scores to the csv file
             //Hard
-            for (int i = 0; i < hardHighScores.Length; i++)
+            for (int i = 0;i < hardHighScores.Count;i++)
             {
-                   sw.WriteLine("Hard," + today + "," + hardHighScores[i]);
+                sw.WriteLine(hardHighScores[i].Difficulty + "," + hardHighScores[i].Score + "," + hardHighScores[i].PlayerName + "," + hardHighScores[i].Timestamp);
+
             }
             //Normal
-            for (int i = 0; i < normalHighScores.Length; i++)
+            for (int i = 0; i < normalHighScores.Count;i++)
             {
-                   sw.WriteLine("Normal," + today + "," + normalHighScores[i]);
+                sw.WriteLine(normalHighScores[i].Difficulty + "," + normalHighScores[i].Score + "," + normalHighScores[i].PlayerName + "," + normalHighScores[i].Timestamp);
             }
-            //Easy
-            for (int i = 0; i < easyHighScores.Length; i++)
+            // Easy
+            for (int i =0; i < easyHighScores.Count; i++)
             {
-                   sw.WriteLine("Easy," + today + "," + easyHighScores[i]);
+                sw.WriteLine(easyHighScores[i].Difficulty + "," + easyHighScores[i].Score + "," + easyHighScores[i].PlayerName + "," + easyHighScores[i].Timestamp);
             }
+
             sw.Close();
 
         }
 
-
-
-        // Update high score arrays and return true if new high score
+        // If new high score update high score lists and return true 
         private bool updateHighScores(int guesses)
         {
-            string difficulty = Properties.Settings.Default.Difficulty;
-            int[] currentHighScores = new int[5];
+            // Declare bool to return
             bool isNewHighScore = false;
 
-            // Get the array of the current difficulty high scores
-            if (difficulty == "Easy")
-                currentHighScores = easyHighScores;
-            else if (difficulty == "Normal")
-                currentHighScores = normalHighScores;
-            else if (difficulty == "Hard")
-                currentHighScores = hardHighScores;
+            // Declare placeholder high score entry
+            List<HighScoreEntry> currentHighScores;
 
-            // Loop through each number in the current HighScores and see if my score is lower
-            for (int i = 0; i < currentHighScores.Length; i++)
+            // Get the list of the current difficulty high scores
+            currentHighScores = getCurrentDifficultyList();
+
+            // Check if there's room for a new high score (Max 3 per difficulty)
+            if (currentHighScores.Count < 3)
             {
-                if (currentHighScores[i] > guesses || currentHighScores[i] == 0)
+                // Set bool to true for return
+                isNewHighScore = true;
+                // Prepare high score entry
+                HighScoreEntry highScoreEntry = newHighScoreEntry(guesses);
+                currentHighScores.Add(highScoreEntry);
+                // Sort list by lowest score using lambda to create new sorted list and reassign our current list to the sorted one
+                currentHighScores = currentHighScores.OrderBy(score => score.Score).ToList();
+            }
+            else
+            {
+                //    Loop through each number in the current HighScores and see if my score is lower
+                for (int i = 0; i < currentHighScores.Count; i++)
                 {
-                    currentHighScores[i] = guesses;
-                    isNewHighScore = true;
-                    // Set current high scores to the corresponding high scores array
-                    if (difficulty == "Easy")
-                        easyHighScores = currentHighScores;
-                    else if (difficulty == "Normal")
-                        normalHighScores = currentHighScores;
-                    else if (difficulty == "Hard")
-                        hardHighScores = currentHighScores;
-                    // Break out of the loop since we found a lower score
-                    break;
+                    if (int.Parse(currentHighScores[i].Score) > guesses)
+                    {
+                        isNewHighScore = true;
+                        // Prepare high score entry
+                        HighScoreEntry highScoreEntry = newHighScoreEntry(guesses);
+                        // Insert at the current index to shift the list down
+                        currentHighScores.Insert(i, highScoreEntry);
+                        // Fourth place removed from the list
+                        currentHighScores.RemoveAt(currentHighScores.Count - 1);
+                        // Break out of the loop since we found a lower score
+                        break;
+                    }
                 }
             }
-           // Return true if new high score or false if not
+
+
+            // Set current high scores to the corresponding high scores list
+            setCurrentDifficultyList(currentHighScores);
+
+            // Return true if new high score or false if not
             return isNewHighScore;
         }
 
 
+        // Helper function to return the current difficulty's corresponding list
+        private List<HighScoreEntry> getCurrentDifficultyList()
+        {
+            string difficulty = Properties.Settings.Default.Difficulty;
+            // Set current high scores to the corresponding high scores list
+            if (difficulty == "Easy")
+                return easyHighScores;
+            else if (difficulty == "Normal")
+                return normalHighScores;
+            else if (difficulty == "Hard")
+                return hardHighScores;
+
+            return null;
+        }
+
+        // Helper function to update the current difficulty's list.
+        private void setCurrentDifficultyList(List<HighScoreEntry> currentDifficultyList )
+        {
+            string difficulty = Properties.Settings.Default.Difficulty;
+            // Set current high scores to the corresponding high scores list
+            if (difficulty == "Easy")
+                easyHighScores = currentDifficultyList;
+            else if (difficulty == "Normal")
+                normalHighScores = currentDifficultyList;
+            else if (difficulty == "Hard")
+                hardHighScores = currentDifficultyList;
+
+        }
+
+        ////////////////////////////////
+        //   Other helper functions   //
+        ////////////////////////////////
 
         // Helper function to update the difficulty displayed in the ComboBox control
-        private void updateDifficulty()
+        private void updateSettings()
         {
-            // Set the selected index of the ComboBox control to the difficulty level
-            // After retrieving the default difficulty level from the settings
+            // Set the selected index of the ComboBox control to the difficulty level saved in the settings
             string defaultDifficulty = Properties.Settings.Default.Difficulty;
             comboBoxDifficulty.SelectedIndex = comboBoxDifficulty.Items.IndexOf(defaultDifficulty);
+            // Remember the player's updated name when opening the settings menu
+            textBoxPlayerName.Text = Properties.Settings.Default.PlayerName;
         }
+
 
     }
 }
