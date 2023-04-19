@@ -474,7 +474,7 @@ namespace Guessing_Game_JM
             }
 
             // Create a list of all high scores
-            List<HighScoreEntry> highScores = new List<HighScoreEntry>();
+            List<HighScoreEntry> highScores;
 
             highScores = (List<HighScoreEntry>)obj;
 
@@ -595,13 +595,20 @@ namespace Guessing_Game_JM
         {
             string difficulty = Properties.Settings.Default.Difficulty;
             // Set current high scores to the corresponding high scores list
-            if (difficulty == "Easy")
-                easyHighScores = currentDifficultyScores;
-            else if (difficulty == "Normal")
-                normalHighScores = currentDifficultyScores;
-            else if (difficulty == "Hard")
-                hardHighScores = currentDifficultyScores;
-
+            switch (difficulty)
+            {
+                case "Easy":
+                    easyHighScores = currentDifficultyScores;
+                    break;
+                case "Normal":
+                    normalHighScores = currentDifficultyScores;
+                    break;
+                case "Hard":
+                    hardHighScores = currentDifficultyScores;
+                    break;
+                default:
+                    break;
+            }
         }
 
         ////////////////////////////////
