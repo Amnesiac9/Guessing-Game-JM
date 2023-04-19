@@ -46,6 +46,8 @@ namespace Guessing_Game_JM
          * Dictionaries and lists
          * https://stackoverflow.com/questions/7914830/what-is-the-difference-between-list-and-dictionary-in-c-sharp
          * https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/tutorials/arrays-and-collections
+         * Sorting list 
+         * https://stackoverflow.com/questions/11062338/c-sharp-create-high-score-text-file-and-reorder-the-results
          * 
          * Append to list
          * https://stackoverflow.com/questions/1825568/append-a-lists-contents-to-another-list-c-sharp
