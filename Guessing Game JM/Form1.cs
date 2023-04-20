@@ -100,6 +100,8 @@ namespace Guessing_Game_JM
         public FormMain()
         {
             InitializeComponent();
+            //Properties.Settings.Default.Reset();
+            
         }
 
         //////////////////////
@@ -130,11 +132,22 @@ namespace Guessing_Game_JM
             textBoxGuess.Focus();
         }
 
-        // Exit button
-        private void buttonExit_Click(object sender, EventArgs e)
+        // Settings button
+        private void pictureBoxSettings_Click(object sender, EventArgs e)
         {
-            // Close the app
-            this.Close();
+            // Open the settings panel when user clicks the Settings button and bring to front
+            panelSettings.Visible = !panelSettings.Visible;
+            panelSettings.BringToFront();
+
+            // Get the difficulty and Player Name from settings
+            updateSettings();
+
+            // Set the FormMain accept button to the buttonSettingsAccept
+            this.AcceptButton = buttonSettingsAccept;
+            // Set the FormMain cancel button to the buttonCancel
+            this.CancelButton = buttonCancel;
+
+            buttonCancel.Focus();
         }
 
         // High Scores button
@@ -154,6 +167,15 @@ namespace Guessing_Game_JM
             // Set the FormMain cancel button to the buttonMainMenu
             this.CancelButton = buttonHighScoresMainMenu;
 
+            buttonHighScoresMainMenu.Focus();
+
+        }
+
+        // Exit button
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            // Close the app
+            this.Close();
         }
 
 
@@ -171,29 +193,14 @@ namespace Guessing_Game_JM
             this.AcceptButton = buttonStart;
             // Set the FormMain cancel button to the buttonExit
             this.CancelButton = buttonExit;
+            // Focus start
+            buttonStart.Focus();
         }
 
 
         //////////////////////
         //* SETTINGS PANEL *//
         //////////////////////
-
-        // Settings button
-        private void pictureBoxSettings_Click(object sender, EventArgs e)
-        {
-            // Open the settings panel when user clicks the Settings button and bring to front
-            panelSettings.Visible = !panelSettings.Visible;
-            panelSettings.BringToFront();
-
-            // Get the difficulty and Player Name from settings
-            updateSettings();
-
-            // Set the FormMain accept button to the buttonSettingsAccept
-            this.AcceptButton = buttonSettingsAccept;
-            // Set the FormMain cancel button to the buttonCancel
-            this.CancelButton = buttonCancel;
-
-        }
 
         // Settings Accept button
         private void buttonSettingsAccept_Click(object sender, EventArgs e)
@@ -214,7 +221,8 @@ namespace Guessing_Game_JM
             this.AcceptButton = buttonStart;
             // Set the FormMain cancel button to the buttonExit
             this.CancelButton = buttonExit;
-
+            // Focus start
+            buttonStart.Focus();
 
         }
 
@@ -229,13 +237,16 @@ namespace Guessing_Game_JM
             this.AcceptButton = buttonStart;
             // Set the FormMain cancel button back to Exit
             this.CancelButton = buttonExit;
-
+            // Focus start
+            buttonStart.Focus();
 
         }
+
 
         ///////////////////////
         //* MAIN GAME PANEL *//
         ///////////////////////
+
 
         // Main Menu button
         private void buttonMainMenu_Click(object sender, EventArgs e)
@@ -248,6 +259,8 @@ namespace Guessing_Game_JM
             this.AcceptButton = buttonStart;
             // Set the FormMain cancel button back to Exit
             this.CancelButton = buttonExit;
+            // Focus start
+            buttonStart.Focus();
         }
 
         // Restart button
@@ -335,8 +348,8 @@ namespace Guessing_Game_JM
         private void guessingGameGuess()
         {
             int guess;
-            // Get the user's guess and confirm it is a number
-            while (!int.TryParse(textBoxGuess.Text, out guess) || guess > maxRandomNumber)
+            // Get the user's guess and confirm it is a number between 0 and the maximum value
+            while (!int.TryParse(textBoxGuess.Text, out guess) || guess > maxRandomNumber || guess < 0)
             {
                 // Display an error message
                 MessageBox.Show($"Please enter a number between 0 and {maxRandomNumber}!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -686,7 +699,7 @@ namespace Guessing_Game_JM
         }
 
         //  Read the high scores from CSV file into my lists (This did work)
-        private void readHighScores()
+        private void readHighScoresCSV()
         {
             string filePath = Path.Combine(Application.StartupPath, "HighScores.csv");
             if (!File.Exists(filePath))
@@ -737,7 +750,7 @@ namespace Guessing_Game_JM
         }
 
         // Write high scores to CSV file (This did work)
-        private void writeHighScores()
+        private void writeHighScoresCSV()
         {
             // Clear the contents of the HighScores.csv file if it exists
             string filePath = Path.Combine(Application.StartupPath, "HighScores.csv");

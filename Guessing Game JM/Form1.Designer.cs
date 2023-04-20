@@ -40,7 +40,6 @@
             this.textBoxPlayerName = new System.Windows.Forms.TextBox();
             this.labelSettingsMenu = new System.Windows.Forms.Label();
             this.labelDifficulty = new System.Windows.Forms.Label();
-            this.comboBoxDifficulty = new System.Windows.Forms.ComboBox();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonSettingsAccept = new System.Windows.Forms.Button();
             this.panelMain = new System.Windows.Forms.Panel();
@@ -64,6 +63,7 @@
             this.buttonHighScores = new System.Windows.Forms.Button();
             this.pictureBoxQuestionMarks = new System.Windows.Forms.PictureBox();
             this.pictureBoxSettings = new System.Windows.Forms.PictureBox();
+            this.comboBoxDifficulty = new System.Windows.Forms.ComboBox();
             this.panelSettings.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.panelHighScores.SuspendLayout();
@@ -133,17 +133,6 @@
             // 
             resources.ApplyResources(this.labelDifficulty, "labelDifficulty");
             this.labelDifficulty.Name = "labelDifficulty";
-            // 
-            // comboBoxDifficulty
-            // 
-            this.comboBoxDifficulty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            resources.ApplyResources(this.comboBoxDifficulty, "comboBoxDifficulty");
-            this.comboBoxDifficulty.FormattingEnabled = true;
-            this.comboBoxDifficulty.Items.AddRange(new object[] {
-            resources.GetString("comboBoxDifficulty.Items"),
-            resources.GetString("comboBoxDifficulty.Items1"),
-            resources.GetString("comboBoxDifficulty.Items2")});
-            this.comboBoxDifficulty.Name = "comboBoxDifficulty";
             // 
             // buttonCancel
             // 
@@ -325,6 +314,19 @@
             this.pictureBoxSettings.Name = "pictureBoxSettings";
             this.pictureBoxSettings.TabStop = false;
             this.pictureBoxSettings.Click += new System.EventHandler(this.pictureBoxSettings_Click);
+            // 
+            // comboBoxDifficulty
+            // 
+            this.comboBoxDifficulty.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::Guessing_Game_JM.Properties.Settings.Default, "Difficulty", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.comboBoxDifficulty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this.comboBoxDifficulty, "comboBoxDifficulty");
+            this.comboBoxDifficulty.FormattingEnabled = true;
+            this.comboBoxDifficulty.Items.AddRange(new object[] {
+            resources.GetString("comboBoxDifficulty.Items"),
+            resources.GetString("comboBoxDifficulty.Items1"),
+            resources.GetString("comboBoxDifficulty.Items2")});
+            this.comboBoxDifficulty.Name = "comboBoxDifficulty";
+            this.comboBoxDifficulty.Text = global::Guessing_Game_JM.Properties.Settings.Default.Difficulty;
             // 
             // FormMain
             // 

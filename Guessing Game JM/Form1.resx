@@ -128,6 +128,10 @@
   <data name="labelTitle.Font" type="System.Drawing.Font, System.Drawing">
     <value>Modern No. 20, 25.8pt, style=Bold</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="labelTitle.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="labelTitle.Location" type="System.Drawing.Point, System.Drawing">
     <value>235, 9</value>
   </data>
@@ -158,6 +162,9 @@
   <data name="labelAuthor.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="labelAuthor.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="labelAuthor.Location" type="System.Drawing.Point, System.Drawing">
     <value>430, 54</value>
   </data>
@@ -185,6 +192,9 @@
   <data name="buttonStart.Font" type="System.Drawing.Font, System.Drawing">
     <value>Ancient Geek, 10.2pt, style=Bold, Italic</value>
   </data>
+  <data name="buttonStart.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="buttonStart.Location" type="System.Drawing.Point, System.Drawing">
     <value>279, 482</value>
   </data>
@@ -209,11 +219,14 @@
   <data name="&gt;&gt;buttonStart.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
+  <data name="buttonExit.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="buttonExit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 627</value>
+    <value>673, 612</value>
   </data>
   <data name="buttonExit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 30</value>
+    <value>70, 30</value>
   </data>
   <data name="buttonExit.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -238,6 +251,9 @@
   </data>
   <data name="labelUsernameTextBox.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 10.8pt</value>
+  </data>
+  <data name="labelUsernameTextBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="labelUsernameTextBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>293, 270</value>
@@ -296,6 +312,9 @@
   <data name="labelSettingsMenu.Font" type="System.Drawing.Font, System.Drawing">
     <value>Atlanta, 19.8pt, style=Underline</value>
   </data>
+  <data name="labelSettingsMenu.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="labelSettingsMenu.Location" type="System.Drawing.Point, System.Drawing">
     <value>265, 99</value>
   </data>
@@ -326,6 +345,9 @@
   <data name="labelDifficulty.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 10.8pt</value>
   </data>
+  <data name="labelDifficulty.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="labelDifficulty.Location" type="System.Drawing.Point, System.Drawing">
     <value>293, 176</value>
   </data>
@@ -350,7 +372,6 @@
   <data name="&gt;&gt;labelDifficulty.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="comboBoxDifficulty.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
@@ -384,6 +405,9 @@
   <data name="&gt;&gt;comboBoxDifficulty.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <data name="buttonCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="buttonCancel.Location" type="System.Drawing.Point, System.Drawing">
     <value>344, 454</value>
   </data>
@@ -407,6 +431,9 @@
   </data>
   <data name="&gt;&gt;buttonCancel.ZOrder" xml:space="preserve">
     <value>5</value>
+  </data>
+  <data name="buttonSettingsAccept.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="buttonSettingsAccept.Location" type="System.Drawing.Point, System.Drawing">
     <value>334, 390</value>
@@ -433,7 +460,7 @@
     <value>6</value>
   </data>
   <data name="panelSettings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 73</value>
+    <value>-1, 71</value>
   </data>
   <data name="panelSettings.Size" type="System.Drawing.Size, System.Drawing">
     <value>770, 594</value>
@@ -458,6 +485,9 @@
   </data>
   <data name="labelMaxGuesses.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="labelMaxGuesses.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="labelMaxGuesses.Location" type="System.Drawing.Point, System.Drawing">
     <value>609, 295</value>
@@ -485,6 +515,9 @@
   </data>
   <data name="labelRangeValue.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="labelRangeValue.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="labelRangeValue.Location" type="System.Drawing.Point, System.Drawing">
     <value>356, 75</value>
@@ -516,6 +549,9 @@
   <data name="labelCurrentRangeText.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 7.8pt, style=Bold</value>
   </data>
+  <data name="labelCurrentRangeText.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="labelCurrentRangeText.Location" type="System.Drawing.Point, System.Drawing">
     <value>339, 53</value>
   </data>
@@ -542,6 +578,9 @@
   </data>
   <data name="labelDifficultyValue.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="labelDifficultyValue.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="labelDifficultyValue.Location" type="System.Drawing.Point, System.Drawing">
     <value>170, 295</value>
@@ -573,6 +612,9 @@
   <data name="labelDifficulty2.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 7.8pt, style=Bold</value>
   </data>
+  <data name="labelDifficulty2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="labelDifficulty2.Location" type="System.Drawing.Point, System.Drawing">
     <value>94, 295</value>
   </data>
@@ -599,6 +641,9 @@
   </data>
   <data name="labelGuessCount.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="labelGuessCount.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="labelGuessCount.Location" type="System.Drawing.Point, System.Drawing">
     <value>593, 295</value>
@@ -627,6 +672,9 @@
   <data name="labelGuess.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 7.8pt, style=Bold</value>
   </data>
+  <data name="labelGuess.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="labelGuess.Location" type="System.Drawing.Point, System.Drawing">
     <value>515, 295</value>
   </data>
@@ -650,6 +698,9 @@
   </data>
   <data name="&gt;&gt;labelGuess.ZOrder" xml:space="preserve">
     <value>6</value>
+  </data>
+  <data name="buttonMainMenu.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="buttonMainMenu.Location" type="System.Drawing.Point, System.Drawing">
     <value>117, 471</value>
@@ -675,6 +726,9 @@
   <data name="&gt;&gt;buttonMainMenu.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
+  <data name="buttonRestart.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="buttonRestart.Location" type="System.Drawing.Point, System.Drawing">
     <value>526, 471</value>
   </data>
@@ -698,6 +752,9 @@
   </data>
   <data name="&gt;&gt;buttonRestart.ZOrder" xml:space="preserve">
     <value>8</value>
+  </data>
+  <data name="buttonGuess.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="buttonGuess.Location" type="System.Drawing.Point, System.Drawing">
     <value>311, 351</value>
@@ -769,7 +826,7 @@
     <value>11</value>
   </data>
   <data name="panelMain.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 91</value>
+    <value>12, 101</value>
   </data>
   <data name="panelMain.Size" type="System.Drawing.Size, System.Drawing">
     <value>748, 567</value>
@@ -800,6 +857,9 @@
   </data>
   <data name="labelHighScores.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 10.8pt</value>
+  </data>
+  <data name="labelHighScores.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="labelHighScores.Location" type="System.Drawing.Point, System.Drawing">
     <value>326, 31</value>
@@ -852,6 +912,9 @@
   <data name="label6.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
     <value>593, 295</value>
   </data>
@@ -872,6 +935,9 @@
   </data>
   <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="buttonHighScoresMainMenu.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="buttonHighScoresMainMenu.Location" type="System.Drawing.Point, System.Drawing">
     <value>338, 470</value>
@@ -898,7 +964,7 @@
     <value>3</value>
   </data>
   <data name="panelHighScores.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 73</value>
+    <value>2, 83</value>
   </data>
   <data name="panelHighScores.Size" type="System.Drawing.Size, System.Drawing">
     <value>767, 585</value>
@@ -920,6 +986,9 @@
   </data>
   <data name="&gt;&gt;panelHighScores.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="buttonHighScores.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="buttonHighScores.Location" type="System.Drawing.Point, System.Drawing">
     <value>313, 426</value>
@@ -945,6 +1014,9 @@
   <data name="&gt;&gt;buttonHighScores.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
+  <data name="pictureBoxQuestionMarks.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="pictureBoxQuestionMarks.Location" type="System.Drawing.Point, System.Drawing">
     <value>184, 140</value>
   </data>
@@ -969,8 +1041,11 @@
   <data name="&gt;&gt;pictureBoxQuestionMarks.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
+  <data name="pictureBoxSettings.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="pictureBoxSettings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>205, 482</value>
+    <value>196, 494</value>
   </data>
   <data name="pictureBoxSettings.Size" type="System.Drawing.Size, System.Drawing">
     <value>66, 65</value>
@@ -4060,6 +4135,9 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA
         xw8AAMcPAADHnwAAxx8AAMcPAADHBwAAxwMAAMeDAADE4wAAwGMAAMBjAADEAwAAxAMAAMYHAAD//wAA
 </value>
+  </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Guessing Game</value>
