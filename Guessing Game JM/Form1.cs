@@ -308,7 +308,7 @@ namespace Guessing_Game_JM
                 maxRandomNumber = 10;
                 maxGuesses = 5;
                 labelMaxGuesses.Text = "/ 5";
-                labelDifficultyValue.ForeColor = Color.Green;
+                labelDifficultyValue.ForeColor = Color.LightGreen;
                 labelRangeValue.Text = "1 - 10";
             }
             else if (difficulty == "Normal")
