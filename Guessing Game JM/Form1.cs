@@ -86,6 +86,7 @@ namespace Guessing_Game_JM
         private int guesses; // class level variable to store the number of guesses
         int maxGuesses; // class level variable to store the max number of guesses
         int maxRandomNumber; // class level variable to store the max random number
+        Random random = new Random(); // Create a random number generator
 
 
         // High Score Lists
@@ -109,7 +110,7 @@ namespace Guessing_Game_JM
         //////////////////////
         private void FormMain_Load(object sender, EventArgs e)
         {
-            // Get high scores from csv file if it exists
+            // Get high scores from file if it exists into my lists 
             readHighScoresXML();
         }
 
@@ -153,9 +154,7 @@ namespace Guessing_Game_JM
         // High Scores button
         private void buttonHighScores_Click(object sender, EventArgs e)
         {
-            // Read the high scores from the csv file and display them in the data table
-            // TODO: Update this to read from the list instead of the csv file
-            //readHighScoresToDataTable();
+            // Read the high scores from my lists and display them in the data table
             readHighScoresToTable();
 
             // Toggle the visibility of the HighScores panel and bring to front
@@ -333,7 +332,7 @@ namespace Guessing_Game_JM
 
             }
 
-            Random random = new Random(); // Create a random number generator
+            
             this.randomNumber = random.Next(1, maxRandomNumber); // Generate a random number between 1 and the maximum value
 
             // Enable the guess button and text box
@@ -476,10 +475,12 @@ namespace Guessing_Game_JM
             string filePath = Path.Combine(Application.StartupPath, "HighScores.xml");
             if (!File.Exists(filePath))
             {
-                return;
+                return; // if it doesn't exist, exit the method
             }
 
+            // Create a new XML serializer
             XmlSerializer serializer = new XmlSerializer(typeof(List<HighScoreEntry>), "Guessing_Game_JM.FormMain.HighScores");
+            // Create an object to hold the deserialized data
             object obj;
             using (var sr = new StreamReader(filePath))
             {
@@ -489,6 +490,7 @@ namespace Guessing_Game_JM
             // Create a list of all high scores
             List<HighScoreEntry> highScores;
 
+            // Cast the object to a list of high scores
             highScores = (List<HighScoreEntry>)obj;
 
             // Split out highScores by difficulty
@@ -524,7 +526,7 @@ namespace Guessing_Game_JM
             // Get filepath
             string filePath = Path.Combine(Application.StartupPath, "HighScores.xml");
 
-            // Create a list of all high scores
+            // Create a list of all high scores combined
             List<HighScoreEntry> highScores = new List<HighScoreEntry>();
             highScores.AddRange(easyHighScores);
             highScores.AddRange(normalHighScores);
