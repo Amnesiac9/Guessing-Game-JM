@@ -2,22 +2,22 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Guessing_Game_JM.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="Difficulty" Type="System.String" Scope="User">
+    <Setting Name="Player1_Difficulty" Type="System.String" Scope="User">
       <Value Profile="(Default)">Normal</Value>
     </Setting>
-    <Setting Name="PlayerName" Type="System.String" Scope="User">
+    <Setting Name="Player1_Name" Type="System.String" Scope="User">
       <Value Profile="(Default)">Player1</Value>
     </Setting>
-    <Setting Name="Difficulty_Player2" Type="System.String" Scope="User">
+    <Setting Name="Player2_Difficulty" Type="System.String" Scope="User">
       <Value Profile="(Default)">Normal</Value>
     </Setting>
-    <Setting Name="Player2Name" Type="System.String" Scope="User">
+    <Setting Name="Player2_Name" Type="System.String" Scope="User">
       <Value Profile="(Default)">Player2</Value>
     </Setting>
-    <Setting Name="Difficulty_Player3" Type="System.String" Scope="User">
+    <Setting Name="Player3_Difficulty" Type="System.String" Scope="User">
       <Value Profile="(Default)">Normal</Value>
     </Setting>
-    <Setting Name="Player3Name" Type="System.String" Scope="User">
+    <Setting Name="Player3_Name" Type="System.String" Scope="User">
       <Value Profile="(Default)">Player3</Value>
     </Setting>
   </Settings>

@@ -29,13 +29,16 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labelTitle = new System.Windows.Forms.Label();
             this.labelAuthor = new System.Windows.Forms.Label();
             this.buttonStart = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
             this.panelSettings = new System.Windows.Forms.Panel();
+            this.RadioButtonPlayer3 = new System.Windows.Forms.RadioButton();
+            this.RadioButtonPlayer2 = new System.Windows.Forms.RadioButton();
+            this.RadioButtonPlayer1 = new System.Windows.Forms.RadioButton();
             this.labelUsernameTextBox = new System.Windows.Forms.Label();
             this.textBoxPlayerName = new System.Windows.Forms.TextBox();
             this.labelSettingsMenu = new System.Windows.Forms.Label();
@@ -64,9 +67,6 @@
             this.buttonHighScores = new System.Windows.Forms.Button();
             this.pictureBoxQuestionMarks = new System.Windows.Forms.PictureBox();
             this.pictureBoxSettings = new System.Windows.Forms.PictureBox();
-            this.RadioButtonPlayer1 = new System.Windows.Forms.RadioButton();
-            this.RadioButtonPlayer2 = new System.Windows.Forms.RadioButton();
-            this.RadioButtonPlayer3 = new System.Windows.Forms.RadioButton();
             this.panelSettings.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.panelHighScores.SuspendLayout();
@@ -120,6 +120,29 @@
             resources.ApplyResources(this.panelSettings, "panelSettings");
             this.panelSettings.Name = "panelSettings";
             // 
+            // RadioButtonPlayer3
+            // 
+            resources.ApplyResources(this.RadioButtonPlayer3, "RadioButtonPlayer3");
+            this.RadioButtonPlayer3.Name = "RadioButtonPlayer3";
+            this.RadioButtonPlayer3.UseVisualStyleBackColor = true;
+            this.RadioButtonPlayer3.CheckedChanged += new System.EventHandler(this.RadioButtonPlayer3_CheckedChanged);
+            // 
+            // RadioButtonPlayer2
+            // 
+            resources.ApplyResources(this.RadioButtonPlayer2, "RadioButtonPlayer2");
+            this.RadioButtonPlayer2.Name = "RadioButtonPlayer2";
+            this.RadioButtonPlayer2.UseVisualStyleBackColor = true;
+            this.RadioButtonPlayer2.CheckedChanged += new System.EventHandler(this.RadioButtonPlayer2_CheckedChanged);
+            // 
+            // RadioButtonPlayer1
+            // 
+            resources.ApplyResources(this.RadioButtonPlayer1, "RadioButtonPlayer1");
+            this.RadioButtonPlayer1.Checked = true;
+            this.RadioButtonPlayer1.Name = "RadioButtonPlayer1";
+            this.RadioButtonPlayer1.TabStop = true;
+            this.RadioButtonPlayer1.UseVisualStyleBackColor = true;
+            this.RadioButtonPlayer1.CheckedChanged += new System.EventHandler(this.RadioButtonPlayer1_CheckedChanged);
+            // 
             // labelUsernameTextBox
             // 
             resources.ApplyResources(this.labelUsernameTextBox, "labelUsernameTextBox");
@@ -150,7 +173,7 @@
             resources.GetString("comboBoxDifficulty.Items1"),
             resources.GetString("comboBoxDifficulty.Items2")});
             this.comboBoxDifficulty.Name = "comboBoxDifficulty";
-            this.comboBoxDifficulty.Text = global::Guessing_Game_JM.Properties.Settings.Default.Difficulty;
+            this.comboBoxDifficulty.Text = global::Guessing_Game_JM.Properties.Settings.Default.Player1_Difficulty;
             // 
             // buttonCancel
             // 
@@ -274,23 +297,23 @@
             // 
             this.dataGridViewHighScores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewHighScores.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewHighScores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewHighScores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewHighScores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewHighScores.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewHighScores.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewHighScores.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             resources.ApplyResources(this.dataGridViewHighScores, "dataGridViewHighScores");
             this.dataGridViewHighScores.Name = "dataGridViewHighScores";
@@ -332,29 +355,6 @@
             this.pictureBoxSettings.Name = "pictureBoxSettings";
             this.pictureBoxSettings.TabStop = false;
             this.pictureBoxSettings.Click += new System.EventHandler(this.pictureBoxSettings_Click);
-            // 
-            // RadioButtonPlayer1
-            // 
-            resources.ApplyResources(this.RadioButtonPlayer1, "RadioButtonPlayer1");
-            this.RadioButtonPlayer1.Checked = true;
-            this.RadioButtonPlayer1.Name = "RadioButtonPlayer1";
-            this.RadioButtonPlayer1.TabStop = true;
-            this.RadioButtonPlayer1.UseVisualStyleBackColor = true;
-            this.RadioButtonPlayer1.CheckedChanged += new System.EventHandler(this.RadioButtonPlayer1_CheckedChanged);
-            // 
-            // RadioButtonPlayer2
-            // 
-            resources.ApplyResources(this.RadioButtonPlayer2, "RadioButtonPlayer2");
-            this.RadioButtonPlayer2.Name = "RadioButtonPlayer2";
-            this.RadioButtonPlayer2.UseVisualStyleBackColor = true;
-            this.RadioButtonPlayer2.CheckedChanged += new System.EventHandler(this.RadioButtonPlayer2_CheckedChanged);
-            // 
-            // RadioButtonPlayer3
-            // 
-            resources.ApplyResources(this.RadioButtonPlayer3, "RadioButtonPlayer3");
-            this.RadioButtonPlayer3.Name = "RadioButtonPlayer3";
-            this.RadioButtonPlayer3.UseVisualStyleBackColor = true;
-            this.RadioButtonPlayer3.CheckedChanged += new System.EventHandler(this.RadioButtonPlayer3_CheckedChanged);
             // 
             // FormMain
             // 

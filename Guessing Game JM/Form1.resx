@@ -547,7 +547,7 @@
     <value>9</value>
   </data>
   <data name="panelSettings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-1, 71</value>
+    <value>-1, 73</value>
   </data>
   <data name="panelSettings.Size" type="System.Drawing.Size, System.Drawing">
     <value>770, 594</value>
@@ -913,7 +913,7 @@
     <value>11</value>
   </data>
   <data name="panelMain.Location" type="System.Drawing.Point, System.Drawing">
-    <value>711, 15</value>
+    <value>12, 94</value>
   </data>
   <data name="panelMain.Size" type="System.Drawing.Size, System.Drawing">
     <value>748, 567</value>
@@ -938,78 +938,6 @@
   </data>
   <data name="panelHighScores.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="&gt;&gt;labelHighScores.Name" xml:space="preserve">
-    <value>labelHighScores</value>
-  </data>
-  <data name="&gt;&gt;labelHighScores.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelHighScores.Parent" xml:space="preserve">
-    <value>panelHighScores</value>
-  </data>
-  <data name="&gt;&gt;labelHighScores.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewHighScores.Name" xml:space="preserve">
-    <value>dataGridViewHighScores</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewHighScores.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewHighScores.Parent" xml:space="preserve">
-    <value>panelHighScores</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewHighScores.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;label6.Name" xml:space="preserve">
-    <value>label6</value>
-  </data>
-  <data name="&gt;&gt;label6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
-    <value>panelHighScores</value>
-  </data>
-  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;buttonHighScoresMainMenu.Name" xml:space="preserve">
-    <value>buttonHighScoresMainMenu</value>
-  </data>
-  <data name="&gt;&gt;buttonHighScoresMainMenu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonHighScoresMainMenu.Parent" xml:space="preserve">
-    <value>panelHighScores</value>
-  </data>
-  <data name="&gt;&gt;buttonHighScoresMainMenu.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="panelHighScores.Location" type="System.Drawing.Point, System.Drawing">
-    <value>753, 12</value>
-  </data>
-  <data name="panelHighScores.Size" type="System.Drawing.Size, System.Drawing">
-    <value>767, 585</value>
-  </data>
-  <data name="panelHighScores.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="panelHighScores.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;panelHighScores.Name" xml:space="preserve">
-    <value>panelHighScores</value>
-  </data>
-  <data name="&gt;&gt;panelHighScores.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelHighScores.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;panelHighScores.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <data name="labelHighScores.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1121,6 +1049,30 @@
   </data>
   <data name="&gt;&gt;buttonHighScoresMainMenu.ZOrder" xml:space="preserve">
     <value>3</value>
+  </data>
+  <data name="panelHighScores.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 76</value>
+  </data>
+  <data name="panelHighScores.Size" type="System.Drawing.Size, System.Drawing">
+    <value>767, 585</value>
+  </data>
+  <data name="panelHighScores.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="panelHighScores.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;panelHighScores.Name" xml:space="preserve">
+    <value>panelHighScores</value>
+  </data>
+  <data name="&gt;&gt;panelHighScores.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelHighScores.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panelHighScores.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="buttonHighScores.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>

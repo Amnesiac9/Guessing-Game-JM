@@ -21,9 +21,10 @@ namespace Guessing_Game_JM
          * 
          * John Moreau
          * CSS133
-         * 4/18/2023
-         * Simple Guessing Game :)
-         * Guess a number between 3 different ranges, selectable by the user.
+         * 4/28/2023
+         * Simple Guessing Game, upgraded :)
+         * Guess a number between 3 different ranges, selectable by the user. 
+         * 3 Different users available on the settings page.
          * Up to 3 High Scores are saved for each difficulty.
          * Saves and loads high scores to an xml file.
          * 
@@ -34,6 +35,7 @@ namespace Guessing_Game_JM
          * 
          * Changed the color of the Easy difficulty label to a lighter green.
          * Renamed some methods to be more descriptive.
+         * Added ability to select up to 3 different users and save their settings individually.
          * 
          * 
          */
@@ -80,9 +82,9 @@ namespace Guessing_Game_JM
         {
             HighScoreEntry highScoreEntry = new HighScoreEntry
             {
-                Difficulty = Properties.Settings.Default.Difficulty, // need to get difficulty string based on selected user
+                Difficulty = getCurrentDifficulty(), // get difficulty string based on selected user
                 Score = guesses.ToString(),
-                PlayerName = Properties.Settings.Default.PlayerName,
+                PlayerName = getCurrentUsername(), // get player name string based on selected user
                 Timestamp = DateTime.Now.ToString("M/dd/yyyy")
             };
 
@@ -316,7 +318,7 @@ namespace Guessing_Game_JM
         //////////////////////////////////
         private void guessingGameInitialize()
         {
-            string difficulty = Properties.Settings.Default.Difficulty; // Get the difficulty
+            string difficulty = getCurrentDifficulty(); // Get the difficulty
             labelDifficultyValue.Text = difficulty; // Set the difficulty value label
             textBoxResponse.Text = "Random number generated. Make your first guess!"; // Reset the text box
             labelGuessCount.Text = "0"; // Reset the guess count label
@@ -621,7 +623,7 @@ namespace Guessing_Game_JM
         // Helper function to return the current difficulty's corresponding list
         private List<HighScoreEntry> getCurrentDifficultyScores()
         {
-            string difficulty = Properties.Settings.Default.Difficulty;
+            string difficulty = getCurrentDifficulty();
             // Set current high scores to the corresponding high scores list
             if (difficulty == "Easy")
                 return easyHighScores;
@@ -636,7 +638,7 @@ namespace Guessing_Game_JM
         // Helper function to update the current difficulty's list.
         private void setCurrentDifficultyScores(List<HighScoreEntry> currentDifficultyScores )
         {
-            string difficulty = Properties.Settings.Default.Difficulty;
+            string difficulty = getCurrentDifficulty();
             // Set current high scores to the corresponding high scores list
             switch (difficulty)
             {
@@ -663,21 +665,21 @@ namespace Guessing_Game_JM
         {
             if (RadioButtonPlayer1.Checked)
             {
-                Properties.Settings.Default.Difficulty = comboBoxDifficulty.SelectedItem.ToString();
-                Properties.Settings.Default.PlayerName = textBoxPlayerName.Text;
+                Properties.Settings.Default.Player1_Difficulty = comboBoxDifficulty.SelectedItem.ToString();
+                Properties.Settings.Default.Player1_Name = textBoxPlayerName.Text;
                 Properties.Settings.Default.Save();
             }
             else if (RadioButtonPlayer2.Checked)
             {
-                Properties.Settings_User2.Default.Difficulty = comboBoxDifficulty.SelectedItem.ToString();
-                Properties.Settings_User2.Default.PlayerName = textBoxPlayerName.Text;
-                Properties.Settings_User2.Default.Save();
+                Properties.Settings.Default.Player2_Difficulty = comboBoxDifficulty.SelectedItem.ToString();
+                Properties.Settings.Default.Player2_Name = textBoxPlayerName.Text;
+                Properties.Settings.Default.Save();
             }
             else if (RadioButtonPlayer3.Checked)
             {
-                Properties.Settings_User3.Default.Difficulty = comboBoxDifficulty.SelectedItem.ToString();
-                Properties.Settings_User3.Default.PlayerName = textBoxPlayerName.Text;
-                Properties.Settings_User3.Default.Save();
+                Properties.Settings.Default.Player3_Difficulty = comboBoxDifficulty.SelectedItem.ToString();
+                Properties.Settings.Default.Player3_Name = textBoxPlayerName.Text;
+                Properties.Settings.Default.Save();
             }
             else
             {
@@ -694,23 +696,23 @@ namespace Guessing_Game_JM
             if (RadioButtonPlayer1.Checked)
             {
                 // Set the selected index of the ComboBox control to the difficulty level saved in the settings
-                comboBoxDifficulty.SelectedIndex = comboBoxDifficulty.Items.IndexOf(Properties.Settings.Default.Difficulty.ToString());
+                comboBoxDifficulty.SelectedIndex = comboBoxDifficulty.Items.IndexOf(Properties.Settings.Default.Player1_Difficulty);
                 // Remember the player's updated name when opening the settings menu
-                textBoxPlayerName.Text = Properties.Settings.Default.PlayerName;
+                textBoxPlayerName.Text = Properties.Settings.Default.Player1_Name;
             }
             else if (RadioButtonPlayer2.Checked)
             {
                 // Set the selected index of the ComboBox control to the difficulty level saved in the settings
-                comboBoxDifficulty.SelectedIndex = comboBoxDifficulty.Items.IndexOf(Properties.Settings_User2.Default.Difficulty.ToString());
+                comboBoxDifficulty.SelectedIndex = comboBoxDifficulty.Items.IndexOf(Properties.Settings.Default.Player2_Difficulty);
                 // Remember the player's updated name when opening the settings menu
-                textBoxPlayerName.Text = Properties.Settings_User2.Default.PlayerName;
+                textBoxPlayerName.Text = Properties.Settings.Default.Player2_Name;
             }
             else if (RadioButtonPlayer3.Checked)
             {
                 // Set the selected index of the ComboBox control to the difficulty level saved in the settings
-                comboBoxDifficulty.SelectedIndex = comboBoxDifficulty.Items.IndexOf(Properties.Settings_User3.Default.Difficulty.ToString());
+                comboBoxDifficulty.SelectedIndex = comboBoxDifficulty.Items.IndexOf(Properties.Settings.Default.Player3_Difficulty);
                 // Remember the player's updated name when opening the settings menu
-                textBoxPlayerName.Text = Properties.Settings_User3.Default.PlayerName;
+                textBoxPlayerName.Text = Properties.Settings.Default.Player3_Name;
             }
             else
             {
@@ -720,6 +722,47 @@ namespace Guessing_Game_JM
 
         }
 
+        // Return the current user's name as a string
+        private string getCurrentUsername()
+        {
+            if (RadioButtonPlayer1.Checked)
+            {
+                return Properties.Settings.Default.Player1_Name;
+            }
+            else if (RadioButtonPlayer2.Checked)
+            {
+                return Properties.Settings.Default.Player2_Name;
+            }
+            else if (RadioButtonPlayer3.Checked)
+            {
+                return Properties.Settings.Default.Player3_Name;
+            }
+            else
+            {
+                return "Error getting username";
+            }
+        }
+
+        // Return the current user's difficulty as a string
+        private string getCurrentDifficulty()
+        {
+            if (RadioButtonPlayer1.Checked)
+            {
+                return Properties.Settings.Default.Player1_Difficulty;
+            }
+            else if (RadioButtonPlayer2.Checked)
+            {
+                return Properties.Settings.Default.Player2_Difficulty;
+            }
+            else if (RadioButtonPlayer3.Checked)
+            {
+                return Properties.Settings.Default.Player3_Difficulty;
+            }
+            else
+            {
+                return "Error getting difficulty";
+            }
+        }
 
 
         /// 

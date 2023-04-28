@@ -26,72 +26,72 @@ namespace Guessing_Game_JM.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Normal")]
-        public string Difficulty {
+        public string Player1_Difficulty {
             get {
-                return ((string)(this["Difficulty"]));
+                return ((string)(this["Player1_Difficulty"]));
             }
             set {
-                this["Difficulty"] = value;
+                this["Player1_Difficulty"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Player1")]
-        public string PlayerName {
+        public string Player1_Name {
             get {
-                return ((string)(this["PlayerName"]));
+                return ((string)(this["Player1_Name"]));
             }
             set {
-                this["PlayerName"] = value;
+                this["Player1_Name"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Normal")]
-        public string Difficulty_Player2 {
+        public string Player2_Difficulty {
             get {
-                return ((string)(this["Difficulty_Player2"]));
+                return ((string)(this["Player2_Difficulty"]));
             }
             set {
-                this["Difficulty_Player2"] = value;
+                this["Player2_Difficulty"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Player2")]
-        public string Player2Name {
+        public string Player2_Name {
             get {
-                return ((string)(this["Player2Name"]));
+                return ((string)(this["Player2_Name"]));
             }
             set {
-                this["Player2Name"] = value;
+                this["Player2_Name"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Normal")]
-        public string Difficulty_Player3 {
+        public string Player3_Difficulty {
             get {
-                return ((string)(this["Difficulty_Player3"]));
+                return ((string)(this["Player3_Difficulty"]));
             }
             set {
-                this["Difficulty_Player3"] = value;
+                this["Player3_Difficulty"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Player3")]
-        public string Player3Name {
+        public string Player3_Name {
             get {
-                return ((string)(this["Player3Name"]));
+                return ((string)(this["Player3_Name"]));
             }
             set {
-                this["Player3Name"] = value;
+                this["Player3_Name"] = value;
             }
         }
     }
