@@ -6,7 +6,19 @@
       <Value Profile="(Default)">Normal</Value>
     </Setting>
     <Setting Name="PlayerName" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Default</Value>
+      <Value Profile="(Default)">Player1</Value>
+    </Setting>
+    <Setting Name="Difficulty_Player2" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Normal</Value>
+    </Setting>
+    <Setting Name="Player2Name" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Player2</Value>
+    </Setting>
+    <Setting Name="Difficulty_Player3" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Normal</Value>
+    </Setting>
+    <Setting Name="Player3Name" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Player3</Value>
     </Setting>
   </Settings>
 </SettingsFile>

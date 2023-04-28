@@ -29,6 +29,15 @@ namespace Guessing_Game_JM
          * 
          */
 
+        /*
+         * CHANGE LOG
+         * 
+         * Changed the color of the Easy difficulty label to a lighter green.
+         * Renamed some methods to be more descriptive.
+         * 
+         * 
+         */
+
 
         /*
          * SOURCES
@@ -71,7 +80,7 @@ namespace Guessing_Game_JM
         {
             HighScoreEntry highScoreEntry = new HighScoreEntry
             {
-                Difficulty = Properties.Settings.Default.Difficulty,
+                Difficulty = Properties.Settings.Default.Difficulty, // need to get difficulty string based on selected user
                 Score = guesses.ToString(),
                 PlayerName = Properties.Settings.Default.PlayerName,
                 Timestamp = DateTime.Now.ToString("M/dd/yyyy")
@@ -141,7 +150,8 @@ namespace Guessing_Game_JM
             panelSettings.BringToFront();
 
             // Get the difficulty and Player Name from settings
-            updateSettings();
+            getCurrentSettings();
+            
 
             // Set the FormMain accept button to the buttonSettingsAccept
             this.AcceptButton = buttonSettingsAccept;
@@ -204,13 +214,11 @@ namespace Guessing_Game_JM
         // Settings Accept button
         private void buttonSettingsAccept_Click(object sender, EventArgs e)
         {
-            // Get the selected value from the ComboBox control
-            string currentDifficulty = comboBoxDifficulty.SelectedItem.ToString();
+
 
             // Save options to settings and update player name
-            Properties.Settings.Default.Difficulty = currentDifficulty;
-            Properties.Settings.Default.PlayerName = textBoxPlayerName.Text;
-            Properties.Settings.Default.Save();
+            updateSettings();
+
 
             // Toggle the visibility of settings panel
             panelSettings.Visible = !panelSettings.Visible;
@@ -239,6 +247,21 @@ namespace Guessing_Game_JM
             // Focus start
             buttonStart.Focus();
 
+        }
+
+        private void RadioButtonPlayer1_CheckedChanged(object sender, EventArgs e)
+        {
+            getCurrentSettings();
+        }
+
+        private void RadioButtonPlayer2_CheckedChanged(object sender, EventArgs e)
+        {
+            getCurrentSettings();
+        }
+
+        private void RadioButtonPlayer3_CheckedChanged(object sender, EventArgs e)
+        {
+            getCurrentSettings();
         }
 
 
@@ -391,7 +414,7 @@ namespace Guessing_Game_JM
                 // Add result message to the text box
                 textBoxResponse.AppendText($"{Environment.NewLine}~~Congratulations!~~ You guessed the number in {guesses} guesses.");
                 // Check for high score
-                if (checkHighScores(guesses))
+                if (checkForHighScore(guesses))
                 {
                     textBoxResponse.AppendText($"{Environment.NewLine}~~~~ NEW HIGH SCORE! ~~~~");
                     // Write the high scores to file
@@ -544,7 +567,7 @@ namespace Guessing_Game_JM
         }
 
         // If new high score update high score lists and return true 
-        private bool checkHighScores(int guesses)
+        private bool checkForHighScore(int guesses)
         {
             // Declare bool to return
             bool isNewHighScore = false;
@@ -635,14 +658,66 @@ namespace Guessing_Game_JM
         //   Other helper functions   //
         ////////////////////////////////
 
-        // Helper function to update the difficulty displayed in the ComboBox control
+        // Helper function to update the difficulty when the user accepts their changes
         private void updateSettings()
         {
-            // Set the selected index of the ComboBox control to the difficulty level saved in the settings
-            string defaultDifficulty = Properties.Settings.Default.Difficulty;
-            comboBoxDifficulty.SelectedIndex = comboBoxDifficulty.Items.IndexOf(defaultDifficulty);
-            // Remember the player's updated name when opening the settings menu
-            textBoxPlayerName.Text = Properties.Settings.Default.PlayerName;
+            if (RadioButtonPlayer1.Checked)
+            {
+                Properties.Settings.Default.Difficulty = comboBoxDifficulty.SelectedItem.ToString();
+                Properties.Settings.Default.PlayerName = textBoxPlayerName.Text;
+                Properties.Settings.Default.Save();
+            }
+            else if (RadioButtonPlayer2.Checked)
+            {
+                Properties.Settings_User2.Default.Difficulty = comboBoxDifficulty.SelectedItem.ToString();
+                Properties.Settings_User2.Default.PlayerName = textBoxPlayerName.Text;
+                Properties.Settings_User2.Default.Save();
+            }
+            else if (RadioButtonPlayer3.Checked)
+            {
+                Properties.Settings_User3.Default.Difficulty = comboBoxDifficulty.SelectedItem.ToString();
+                Properties.Settings_User3.Default.PlayerName = textBoxPlayerName.Text;
+                Properties.Settings_User3.Default.Save();
+            }
+            else
+            {
+                MessageBox.Show("Error saving player settings", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+        }
+
+
+        private void getCurrentSettings()
+        {
+
+
+            if (RadioButtonPlayer1.Checked)
+            {
+                // Set the selected index of the ComboBox control to the difficulty level saved in the settings
+                comboBoxDifficulty.SelectedIndex = comboBoxDifficulty.Items.IndexOf(Properties.Settings.Default.Difficulty.ToString());
+                // Remember the player's updated name when opening the settings menu
+                textBoxPlayerName.Text = Properties.Settings.Default.PlayerName;
+            }
+            else if (RadioButtonPlayer2.Checked)
+            {
+                // Set the selected index of the ComboBox control to the difficulty level saved in the settings
+                comboBoxDifficulty.SelectedIndex = comboBoxDifficulty.Items.IndexOf(Properties.Settings_User2.Default.Difficulty.ToString());
+                // Remember the player's updated name when opening the settings menu
+                textBoxPlayerName.Text = Properties.Settings_User2.Default.PlayerName;
+            }
+            else if (RadioButtonPlayer3.Checked)
+            {
+                // Set the selected index of the ComboBox control to the difficulty level saved in the settings
+                comboBoxDifficulty.SelectedIndex = comboBoxDifficulty.Items.IndexOf(Properties.Settings_User3.Default.Difficulty.ToString());
+                // Remember the player's updated name when opening the settings menu
+                textBoxPlayerName.Text = Properties.Settings_User3.Default.PlayerName;
+            }
+            else
+            {
+                MessageBox.Show("Error getting current settings.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
         }
 
 

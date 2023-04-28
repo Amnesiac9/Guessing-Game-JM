@@ -246,6 +246,93 @@
   <data name="&gt;&gt;buttonExit.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
+  <data name="RadioButtonPlayer3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="RadioButtonPlayer3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="RadioButtonPlayer3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>581, 199</value>
+  </data>
+  <data name="RadioButtonPlayer3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 20</value>
+  </data>
+  <data name="RadioButtonPlayer3.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="RadioButtonPlayer3.Text" xml:space="preserve">
+    <value>Player 3</value>
+  </data>
+  <data name="&gt;&gt;RadioButtonPlayer3.Name" xml:space="preserve">
+    <value>RadioButtonPlayer3</value>
+  </data>
+  <data name="&gt;&gt;RadioButtonPlayer3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RadioButtonPlayer3.Parent" xml:space="preserve">
+    <value>panelSettings</value>
+  </data>
+  <data name="&gt;&gt;RadioButtonPlayer3.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="RadioButtonPlayer2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="RadioButtonPlayer2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="RadioButtonPlayer2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>581, 161</value>
+  </data>
+  <data name="RadioButtonPlayer2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 20</value>
+  </data>
+  <data name="RadioButtonPlayer2.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="RadioButtonPlayer2.Text" xml:space="preserve">
+    <value>Player 2</value>
+  </data>
+  <data name="&gt;&gt;RadioButtonPlayer2.Name" xml:space="preserve">
+    <value>RadioButtonPlayer2</value>
+  </data>
+  <data name="&gt;&gt;RadioButtonPlayer2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RadioButtonPlayer2.Parent" xml:space="preserve">
+    <value>panelSettings</value>
+  </data>
+  <data name="&gt;&gt;RadioButtonPlayer2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="RadioButtonPlayer1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="RadioButtonPlayer1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>581, 123</value>
+  </data>
+  <data name="RadioButtonPlayer1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 20</value>
+  </data>
+  <data name="RadioButtonPlayer1.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="RadioButtonPlayer1.Text" xml:space="preserve">
+    <value>Player 1</value>
+  </data>
+  <data name="&gt;&gt;RadioButtonPlayer1.Name" xml:space="preserve">
+    <value>RadioButtonPlayer1</value>
+  </data>
+  <data name="&gt;&gt;RadioButtonPlayer1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RadioButtonPlayer1.Parent" xml:space="preserve">
+    <value>panelSettings</value>
+  </data>
+  <data name="&gt;&gt;RadioButtonPlayer1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="labelUsernameTextBox.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -277,7 +364,7 @@
     <value>panelSettings</value>
   </data>
   <data name="&gt;&gt;labelUsernameTextBox.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>3</value>
   </data>
   <data name="textBoxPlayerName.Location" type="System.Drawing.Point, System.Drawing">
     <value>306, 299</value>
@@ -304,7 +391,7 @@
     <value>panelSettings</value>
   </data>
   <data name="&gt;&gt;textBoxPlayerName.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>4</value>
   </data>
   <data name="labelSettingsMenu.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -337,7 +424,7 @@
     <value>panelSettings</value>
   </data>
   <data name="&gt;&gt;labelSettingsMenu.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>5</value>
   </data>
   <data name="labelDifficulty.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -370,7 +457,7 @@
     <value>panelSettings</value>
   </data>
   <data name="&gt;&gt;labelDifficulty.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>6</value>
   </data>
   <data name="comboBoxDifficulty.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -403,7 +490,7 @@
     <value>panelSettings</value>
   </data>
   <data name="&gt;&gt;comboBoxDifficulty.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>7</value>
   </data>
   <data name="buttonCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -430,7 +517,7 @@
     <value>panelSettings</value>
   </data>
   <data name="&gt;&gt;buttonCancel.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>8</value>
   </data>
   <data name="buttonSettingsAccept.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -457,7 +544,7 @@
     <value>panelSettings</value>
   </data>
   <data name="&gt;&gt;buttonSettingsAccept.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>9</value>
   </data>
   <data name="panelSettings.Location" type="System.Drawing.Point, System.Drawing">
     <value>-1, 71</value>
@@ -826,7 +913,7 @@
     <value>11</value>
   </data>
   <data name="panelMain.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 101</value>
+    <value>711, 15</value>
   </data>
   <data name="panelMain.Size" type="System.Drawing.Size, System.Drawing">
     <value>748, 567</value>
@@ -851,6 +938,78 @@
   </data>
   <data name="panelHighScores.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;labelHighScores.Name" xml:space="preserve">
+    <value>labelHighScores</value>
+  </data>
+  <data name="&gt;&gt;labelHighScores.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelHighScores.Parent" xml:space="preserve">
+    <value>panelHighScores</value>
+  </data>
+  <data name="&gt;&gt;labelHighScores.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewHighScores.Name" xml:space="preserve">
+    <value>dataGridViewHighScores</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewHighScores.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewHighScores.Parent" xml:space="preserve">
+    <value>panelHighScores</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewHighScores.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;label6.Name" xml:space="preserve">
+    <value>label6</value>
+  </data>
+  <data name="&gt;&gt;label6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
+    <value>panelHighScores</value>
+  </data>
+  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;buttonHighScoresMainMenu.Name" xml:space="preserve">
+    <value>buttonHighScoresMainMenu</value>
+  </data>
+  <data name="&gt;&gt;buttonHighScoresMainMenu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonHighScoresMainMenu.Parent" xml:space="preserve">
+    <value>panelHighScores</value>
+  </data>
+  <data name="&gt;&gt;buttonHighScoresMainMenu.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="panelHighScores.Location" type="System.Drawing.Point, System.Drawing">
+    <value>753, 12</value>
+  </data>
+  <data name="panelHighScores.Size" type="System.Drawing.Size, System.Drawing">
+    <value>767, 585</value>
+  </data>
+  <data name="panelHighScores.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="panelHighScores.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;panelHighScores.Name" xml:space="preserve">
+    <value>panelHighScores</value>
+  </data>
+  <data name="&gt;&gt;panelHighScores.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelHighScores.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panelHighScores.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="labelHighScores.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -962,30 +1121,6 @@
   </data>
   <data name="&gt;&gt;buttonHighScoresMainMenu.ZOrder" xml:space="preserve">
     <value>3</value>
-  </data>
-  <data name="panelHighScores.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 83</value>
-  </data>
-  <data name="panelHighScores.Size" type="System.Drawing.Size, System.Drawing">
-    <value>767, 585</value>
-  </data>
-  <data name="panelHighScores.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="panelHighScores.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;panelHighScores.Name" xml:space="preserve">
-    <value>panelHighScores</value>
-  </data>
-  <data name="&gt;&gt;panelHighScores.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelHighScores.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;panelHighScores.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <data name="buttonHighScores.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -4135,9 +4270,6 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA
         xw8AAMcPAADHnwAAxx8AAMcPAADHBwAAxwMAAMeDAADE4wAAwGMAAMBjAADEAwAAxAMAAMYHAAD//wAA
 </value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Guessing Game</value>
