@@ -133,7 +133,7 @@
     <value>NoControl</value>
   </data>
   <data name="labelTitle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>235, 9</value>
+    <value>238, 9</value>
   </data>
   <data name="labelTitle.Size" type="System.Drawing.Size, System.Drawing">
     <value>297, 45</value>
@@ -190,16 +190,16 @@
     <value>1</value>
   </data>
   <data name="buttonStart.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Ancient Geek, 10.2pt, style=Bold, Italic</value>
+    <value>Castellar, 18pt, style=Bold</value>
   </data>
   <data name="buttonStart.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="buttonStart.Location" type="System.Drawing.Point, System.Drawing">
-    <value>279, 482</value>
+    <value>269, 473</value>
   </data>
   <data name="buttonStart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>215, 87</value>
+    <value>199, 72</value>
   </data>
   <data name="buttonStart.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -219,50 +219,137 @@
   <data name="&gt;&gt;buttonStart.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="buttonExit.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;groupBoxPlayerSelect.Name" xml:space="preserve">
+    <value>groupBoxPlayerSelect</value>
   </data>
-  <data name="buttonExit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>673, 612</value>
+  <data name="&gt;&gt;groupBoxPlayerSelect.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="buttonExit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 30</value>
+  <data name="&gt;&gt;groupBoxPlayerSelect.Parent" xml:space="preserve">
+    <value>panelSettings</value>
   </data>
-  <data name="buttonExit.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;groupBoxPlayerSelect.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;labelUsernameTextBox.Name" xml:space="preserve">
+    <value>labelUsernameTextBox</value>
+  </data>
+  <data name="&gt;&gt;labelUsernameTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelUsernameTextBox.Parent" xml:space="preserve">
+    <value>panelSettings</value>
+  </data>
+  <data name="&gt;&gt;labelUsernameTextBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;textBoxPlayerName.Name" xml:space="preserve">
+    <value>textBoxPlayerName</value>
+  </data>
+  <data name="&gt;&gt;textBoxPlayerName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBoxPlayerName.Parent" xml:space="preserve">
+    <value>panelSettings</value>
+  </data>
+  <data name="&gt;&gt;textBoxPlayerName.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;labelSettingsMenu.Name" xml:space="preserve">
+    <value>labelSettingsMenu</value>
+  </data>
+  <data name="&gt;&gt;labelSettingsMenu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelSettingsMenu.Parent" xml:space="preserve">
+    <value>panelSettings</value>
+  </data>
+  <data name="&gt;&gt;labelSettingsMenu.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;labelDifficulty.Name" xml:space="preserve">
+    <value>labelDifficulty</value>
+  </data>
+  <data name="&gt;&gt;labelDifficulty.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelDifficulty.Parent" xml:space="preserve">
+    <value>panelSettings</value>
+  </data>
+  <data name="&gt;&gt;labelDifficulty.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="buttonExit.Text" xml:space="preserve">
-    <value>E&amp;xit</value>
+  <data name="&gt;&gt;comboBoxDifficulty.Name" xml:space="preserve">
+    <value>comboBoxDifficulty</value>
   </data>
-  <data name="&gt;&gt;buttonExit.Name" xml:space="preserve">
-    <value>buttonExit</value>
+  <data name="&gt;&gt;comboBoxDifficulty.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;buttonExit.Type" xml:space="preserve">
+  <data name="&gt;&gt;comboBoxDifficulty.Parent" xml:space="preserve">
+    <value>panelSettings</value>
+  </data>
+  <data name="&gt;&gt;comboBoxDifficulty.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;buttonSettingsCancel.Name" xml:space="preserve">
+    <value>buttonSettingsCancel</value>
+  </data>
+  <data name="&gt;&gt;buttonSettingsCancel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;buttonExit.Parent" xml:space="preserve">
+  <data name="&gt;&gt;buttonSettingsCancel.Parent" xml:space="preserve">
+    <value>panelSettings</value>
+  </data>
+  <data name="&gt;&gt;buttonSettingsCancel.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;buttonSettingsAccept.Name" xml:space="preserve">
+    <value>buttonSettingsAccept</value>
+  </data>
+  <data name="&gt;&gt;buttonSettingsAccept.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonSettingsAccept.Parent" xml:space="preserve">
+    <value>panelSettings</value>
+  </data>
+  <data name="&gt;&gt;buttonSettingsAccept.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="panelSettings.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 84</value>
+  </data>
+  <data name="panelSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>770, 579</value>
+  </data>
+  <data name="panelSettings.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="panelSettings.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;panelSettings.Name" xml:space="preserve">
+    <value>panelSettings</value>
+  </data>
+  <data name="&gt;&gt;panelSettings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelSettings.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;buttonExit.ZOrder" xml:space="preserve">
-    <value>8</value>
+  <data name="&gt;&gt;panelSettings.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
-  <data name="RadioButtonPlayer3.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;RadioButtonPlayer1.Name" xml:space="preserve">
+    <value>RadioButtonPlayer1</value>
   </data>
-  <data name="RadioButtonPlayer3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;RadioButtonPlayer1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="RadioButtonPlayer3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>581, 199</value>
+  <data name="&gt;&gt;RadioButtonPlayer1.Parent" xml:space="preserve">
+    <value>groupBoxPlayerSelect</value>
   </data>
-  <data name="RadioButtonPlayer3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>77, 20</value>
-  </data>
-  <data name="RadioButtonPlayer3.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="RadioButtonPlayer3.Text" xml:space="preserve">
-    <value>Player 3</value>
+  <data name="&gt;&gt;RadioButtonPlayer1.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;RadioButtonPlayer3.Name" xml:space="preserve">
     <value>RadioButtonPlayer3</value>
@@ -271,28 +358,10 @@
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;RadioButtonPlayer3.Parent" xml:space="preserve">
-    <value>panelSettings</value>
+    <value>groupBoxPlayerSelect</value>
   </data>
   <data name="&gt;&gt;RadioButtonPlayer3.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="RadioButtonPlayer2.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="RadioButtonPlayer2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="RadioButtonPlayer2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>581, 161</value>
-  </data>
-  <data name="RadioButtonPlayer2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>77, 20</value>
-  </data>
-  <data name="RadioButtonPlayer2.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="RadioButtonPlayer2.Text" xml:space="preserve">
-    <value>Player 2</value>
+    <value>1</value>
   </data>
   <data name="&gt;&gt;RadioButtonPlayer2.Name" xml:space="preserve">
     <value>RadioButtonPlayer2</value>
@@ -301,19 +370,49 @@
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;RadioButtonPlayer2.Parent" xml:space="preserve">
-    <value>panelSettings</value>
+    <value>groupBoxPlayerSelect</value>
   </data>
   <data name="&gt;&gt;RadioButtonPlayer2.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
+  </data>
+  <data name="groupBoxPlayerSelect.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="groupBoxPlayerSelect.Location" type="System.Drawing.Point, System.Drawing">
+    <value>81, 93</value>
+  </data>
+  <data name="groupBoxPlayerSelect.Size" type="System.Drawing.Size, System.Drawing">
+    <value>138, 199</value>
+  </data>
+  <data name="groupBoxPlayerSelect.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="groupBoxPlayerSelect.Text" xml:space="preserve">
+    <value>Player Select</value>
+  </data>
+  <data name="&gt;&gt;groupBoxPlayerSelect.Name" xml:space="preserve">
+    <value>groupBoxPlayerSelect</value>
+  </data>
+  <data name="&gt;&gt;groupBoxPlayerSelect.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBoxPlayerSelect.Parent" xml:space="preserve">
+    <value>panelSettings</value>
+  </data>
+  <data name="&gt;&gt;groupBoxPlayerSelect.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="RadioButtonPlayer1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="RadioButtonPlayer1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="RadioButtonPlayer1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>581, 123</value>
+    <value>26, 49</value>
   </data>
   <data name="RadioButtonPlayer1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>77, 20</value>
+    <value>82, 22</value>
   </data>
   <data name="RadioButtonPlayer1.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -328,9 +427,69 @@
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;RadioButtonPlayer1.Parent" xml:space="preserve">
-    <value>panelSettings</value>
+    <value>groupBoxPlayerSelect</value>
   </data>
   <data name="&gt;&gt;RadioButtonPlayer1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="RadioButtonPlayer3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="RadioButtonPlayer3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="RadioButtonPlayer3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 125</value>
+  </data>
+  <data name="RadioButtonPlayer3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>82, 22</value>
+  </data>
+  <data name="RadioButtonPlayer3.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="RadioButtonPlayer3.Text" xml:space="preserve">
+    <value>Player 3</value>
+  </data>
+  <data name="&gt;&gt;RadioButtonPlayer3.Name" xml:space="preserve">
+    <value>RadioButtonPlayer3</value>
+  </data>
+  <data name="&gt;&gt;RadioButtonPlayer3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RadioButtonPlayer3.Parent" xml:space="preserve">
+    <value>groupBoxPlayerSelect</value>
+  </data>
+  <data name="&gt;&gt;RadioButtonPlayer3.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="RadioButtonPlayer2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="RadioButtonPlayer2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="RadioButtonPlayer2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 87</value>
+  </data>
+  <data name="RadioButtonPlayer2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>82, 22</value>
+  </data>
+  <data name="RadioButtonPlayer2.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="RadioButtonPlayer2.Text" xml:space="preserve">
+    <value>Player 2</value>
+  </data>
+  <data name="&gt;&gt;RadioButtonPlayer2.Name" xml:space="preserve">
+    <value>RadioButtonPlayer2</value>
+  </data>
+  <data name="&gt;&gt;RadioButtonPlayer2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RadioButtonPlayer2.Parent" xml:space="preserve">
+    <value>groupBoxPlayerSelect</value>
+  </data>
+  <data name="&gt;&gt;RadioButtonPlayer2.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="labelUsernameTextBox.AutoSize" type="System.Boolean, mscorlib">
@@ -343,7 +502,7 @@
     <value>NoControl</value>
   </data>
   <data name="labelUsernameTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>293, 270</value>
+    <value>285, 269</value>
   </data>
   <data name="labelUsernameTextBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>176, 22</value>
@@ -364,13 +523,13 @@
     <value>panelSettings</value>
   </data>
   <data name="&gt;&gt;labelUsernameTextBox.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>1</value>
   </data>
   <data name="textBoxPlayerName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>306, 299</value>
+    <value>298, 298</value>
   </data>
   <data name="textBoxPlayerName.MaxLength" type="System.Int32, mscorlib">
-    <value>25</value>
+    <value>15</value>
   </data>
   <data name="textBoxPlayerName.Size" type="System.Drawing.Size, System.Drawing">
     <value>154, 22</value>
@@ -391,22 +550,22 @@
     <value>panelSettings</value>
   </data>
   <data name="&gt;&gt;textBoxPlayerName.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>2</value>
   </data>
   <data name="labelSettingsMenu.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="labelSettingsMenu.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Atlanta, 19.8pt, style=Underline</value>
+    <value>Atlanta, 22.2pt, style=Underline</value>
   </data>
   <data name="labelSettingsMenu.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="labelSettingsMenu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>265, 99</value>
+    <value>249, 67</value>
   </data>
   <data name="labelSettingsMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>240, 44</value>
+    <value>272, 50</value>
   </data>
   <data name="labelSettingsMenu.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -424,7 +583,7 @@
     <value>panelSettings</value>
   </data>
   <data name="&gt;&gt;labelSettingsMenu.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>3</value>
   </data>
   <data name="labelDifficulty.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -436,7 +595,7 @@
     <value>NoControl</value>
   </data>
   <data name="labelDifficulty.Location" type="System.Drawing.Point, System.Drawing">
-    <value>293, 176</value>
+    <value>285, 179</value>
   </data>
   <data name="labelDifficulty.Size" type="System.Drawing.Size, System.Drawing">
     <value>181, 22</value>
@@ -457,7 +616,7 @@
     <value>panelSettings</value>
   </data>
   <data name="&gt;&gt;labelDifficulty.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>4</value>
   </data>
   <data name="comboBoxDifficulty.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -472,7 +631,7 @@
     <value>Hard</value>
   </data>
   <data name="comboBoxDifficulty.Location" type="System.Drawing.Point, System.Drawing">
-    <value>306, 211</value>
+    <value>298, 210</value>
   </data>
   <data name="comboBoxDifficulty.Size" type="System.Drawing.Size, System.Drawing">
     <value>154, 24</value>
@@ -490,40 +649,46 @@
     <value>panelSettings</value>
   </data>
   <data name="&gt;&gt;comboBoxDifficulty.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>5</value>
   </data>
-  <data name="buttonCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="buttonSettingsCancel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Counter-Strike, 9pt, style=Bold</value>
+  </data>
+  <data name="buttonSettingsCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="buttonCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>344, 454</value>
+  <data name="buttonSettingsCancel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>320, 466</value>
   </data>
-  <data name="buttonCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
+  <data name="buttonSettingsCancel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 32</value>
   </data>
-  <data name="buttonCancel.TabIndex" type="System.Int32, mscorlib">
+  <data name="buttonSettingsCancel.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="buttonCancel.Text" xml:space="preserve">
+  <data name="buttonSettingsCancel.Text" xml:space="preserve">
     <value>&amp;Cancel</value>
   </data>
-  <data name="&gt;&gt;buttonCancel.Name" xml:space="preserve">
-    <value>buttonCancel</value>
+  <data name="&gt;&gt;buttonSettingsCancel.Name" xml:space="preserve">
+    <value>buttonSettingsCancel</value>
   </data>
-  <data name="&gt;&gt;buttonCancel.Type" xml:space="preserve">
+  <data name="&gt;&gt;buttonSettingsCancel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;buttonCancel.Parent" xml:space="preserve">
+  <data name="&gt;&gt;buttonSettingsCancel.Parent" xml:space="preserve">
     <value>panelSettings</value>
   </data>
-  <data name="&gt;&gt;buttonCancel.ZOrder" xml:space="preserve">
-    <value>8</value>
+  <data name="&gt;&gt;buttonSettingsCancel.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="buttonSettingsAccept.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Counter-Strike, 9pt, style=Bold</value>
   </data>
   <data name="buttonSettingsAccept.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="buttonSettingsAccept.Location" type="System.Drawing.Point, System.Drawing">
-    <value>334, 390</value>
+    <value>320, 408</value>
   </data>
   <data name="buttonSettingsAccept.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 41</value>
@@ -544,49 +709,124 @@
     <value>panelSettings</value>
   </data>
   <data name="&gt;&gt;buttonSettingsAccept.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>7</value>
   </data>
-  <data name="panelSettings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-1, 73</value>
+  <data name="numericUpDownGuess.AccessibleDescription" xml:space="preserve">
+    <value>Number box to type your guess</value>
   </data>
-  <data name="panelSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>770, 594</value>
+  <data name="numericUpDownGuess.AccessibleName" xml:space="preserve">
+    <value>Number Guess Box</value>
   </data>
-  <data name="panelSettings.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+  <data name="numericUpDownGuess.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.2pt</value>
   </data>
-  <data name="panelSettings.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="numericUpDownGuess.Location" type="System.Drawing.Point, System.Drawing">
+    <value>320, 400</value>
   </data>
-  <data name="&gt;&gt;panelSettings.Name" xml:space="preserve">
-    <value>panelSettings</value>
+  <data name="numericUpDownGuess.Size" type="System.Drawing.Size, System.Drawing">
+    <value>112, 27</value>
   </data>
-  <data name="&gt;&gt;panelSettings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="numericUpDownGuess.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
   </data>
-  <data name="&gt;&gt;panelSettings.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;numericUpDownGuess.Name" xml:space="preserve">
+    <value>numericUpDownGuess</value>
   </data>
-  <data name="&gt;&gt;panelSettings.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="&gt;&gt;numericUpDownGuess.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;numericUpDownGuess.Parent" xml:space="preserve">
+    <value>panelGame</value>
+  </data>
+  <data name="&gt;&gt;numericUpDownGuess.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="labelPlayerName.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelPlayerName.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Counter-Strike, 12pt, style=Bold</value>
+  </data>
+  <data name="labelPlayerName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="labelPlayerName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>337, 39</value>
+  </data>
+  <data name="labelPlayerName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>95, 16</value>
+  </data>
+  <data name="labelPlayerName.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="labelPlayerName.Text" xml:space="preserve">
+    <value>Player1</value>
+  </data>
+  <data name="&gt;&gt;labelPlayerName.Name" xml:space="preserve">
+    <value>labelPlayerName</value>
+  </data>
+  <data name="&gt;&gt;labelPlayerName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelPlayerName.Parent" xml:space="preserve">
+    <value>panelGame</value>
+  </data>
+  <data name="&gt;&gt;labelPlayerName.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="labelPlayer.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelPlayer.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.2pt, style=Bold</value>
+  </data>
+  <data name="labelPlayer.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="labelPlayer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>251, 35</value>
+  </data>
+  <data name="labelPlayer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 20</value>
+  </data>
+  <data name="labelPlayer.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="labelPlayer.Text" xml:space="preserve">
+    <value>Player:</value>
+  </data>
+  <data name="&gt;&gt;labelPlayer.Name" xml:space="preserve">
+    <value>labelPlayer</value>
+  </data>
+  <data name="&gt;&gt;labelPlayer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelPlayer.Parent" xml:space="preserve">
+    <value>panelGame</value>
+  </data>
+  <data name="&gt;&gt;labelPlayer.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="labelMaxGuesses.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="labelMaxGuesses.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Counter-Strike, 9pt, style=Bold</value>
   </data>
   <data name="labelMaxGuesses.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="labelMaxGuesses.Location" type="System.Drawing.Point, System.Drawing">
-    <value>609, 295</value>
+    <value>607, 352</value>
   </data>
   <data name="labelMaxGuesses.Size" type="System.Drawing.Size, System.Drawing">
-    <value>116, 16</value>
+    <value>35, 12</value>
   </data>
   <data name="labelMaxGuesses.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
   </data>
   <data name="labelMaxGuesses.Text" xml:space="preserve">
-    <value>labelMaxGuesses</value>
+    <value>| 10</value>
   </data>
   <data name="&gt;&gt;labelMaxGuesses.Name" xml:space="preserve">
     <value>labelMaxGuesses</value>
@@ -595,22 +835,25 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;labelMaxGuesses.Parent" xml:space="preserve">
-    <value>panelMain</value>
+    <value>panelGame</value>
   </data>
   <data name="&gt;&gt;labelMaxGuesses.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>3</value>
   </data>
   <data name="labelRangeValue.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="labelRangeValue.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.2pt</value>
   </data>
   <data name="labelRangeValue.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="labelRangeValue.Location" type="System.Drawing.Point, System.Drawing">
-    <value>356, 75</value>
+    <value>348, 365</value>
   </data>
   <data name="labelRangeValue.Size" type="System.Drawing.Size, System.Drawing">
-    <value>38, 16</value>
+    <value>52, 20</value>
   </data>
   <data name="labelRangeValue.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -625,55 +868,58 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;labelRangeValue.Parent" xml:space="preserve">
-    <value>panelMain</value>
+    <value>panelGame</value>
   </data>
   <data name="&gt;&gt;labelRangeValue.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>4</value>
   </data>
-  <data name="labelCurrentRangeText.AutoSize" type="System.Boolean, mscorlib">
+  <data name="labelMinMax.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="labelCurrentRangeText.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 7.8pt, style=Bold</value>
+  <data name="labelMinMax.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.2pt, style=Bold</value>
   </data>
-  <data name="labelCurrentRangeText.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="labelMinMax.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="labelCurrentRangeText.Location" type="System.Drawing.Point, System.Drawing">
-    <value>339, 53</value>
+  <data name="labelMinMax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>344, 345</value>
   </data>
-  <data name="labelCurrentRangeText.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 16</value>
+  <data name="labelMinMax.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 20</value>
   </data>
-  <data name="labelCurrentRangeText.TabIndex" type="System.Int32, mscorlib">
+  <data name="labelMinMax.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
-  <data name="labelCurrentRangeText.Text" xml:space="preserve">
-    <value>Min | Max</value>
+  <data name="labelMinMax.Text" xml:space="preserve">
+    <value>Range</value>
   </data>
-  <data name="&gt;&gt;labelCurrentRangeText.Name" xml:space="preserve">
-    <value>labelCurrentRangeText</value>
+  <data name="&gt;&gt;labelMinMax.Name" xml:space="preserve">
+    <value>labelMinMax</value>
   </data>
-  <data name="&gt;&gt;labelCurrentRangeText.Type" xml:space="preserve">
+  <data name="&gt;&gt;labelMinMax.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;labelCurrentRangeText.Parent" xml:space="preserve">
-    <value>panelMain</value>
+  <data name="&gt;&gt;labelMinMax.Parent" xml:space="preserve">
+    <value>panelGame</value>
   </data>
-  <data name="&gt;&gt;labelCurrentRangeText.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;labelMinMax.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <data name="labelDifficultyValue.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="labelDifficultyValue.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Counter-Strike, 9pt, style=Bold</value>
   </data>
   <data name="labelDifficultyValue.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="labelDifficultyValue.Location" type="System.Drawing.Point, System.Drawing">
-    <value>170, 295</value>
+    <value>189, 351</value>
   </data>
   <data name="labelDifficultyValue.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 16</value>
+    <value>63, 12</value>
   </data>
   <data name="labelDifficultyValue.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -688,25 +934,25 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;labelDifficultyValue.Parent" xml:space="preserve">
-    <value>panelMain</value>
+    <value>panelGame</value>
   </data>
   <data name="&gt;&gt;labelDifficultyValue.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>6</value>
   </data>
   <data name="labelDifficulty2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="labelDifficulty2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 7.8pt, style=Bold</value>
+    <value>Microsoft Sans Serif, 10.2pt, style=Bold</value>
   </data>
   <data name="labelDifficulty2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="labelDifficulty2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>94, 295</value>
+    <value>92, 346</value>
   </data>
   <data name="labelDifficulty2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 16</value>
+    <value>91, 20</value>
   </data>
   <data name="labelDifficulty2.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -721,25 +967,31 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;labelDifficulty2.Parent" xml:space="preserve">
-    <value>panelMain</value>
+    <value>panelGame</value>
   </data>
   <data name="&gt;&gt;labelDifficulty2.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>7</value>
   </data>
   <data name="labelGuessCount.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="labelGuessCount.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Counter-Strike, 9pt, style=Bold</value>
   </data>
   <data name="labelGuessCount.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="labelGuessCount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>593, 295</value>
+    <value>592, 352</value>
   </data>
   <data name="labelGuessCount.Size" type="System.Drawing.Size, System.Drawing">
-    <value>0, 16</value>
+    <value>18, 12</value>
   </data>
   <data name="labelGuessCount.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
+  </data>
+  <data name="labelGuessCount.Text" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;labelGuessCount.Name" xml:space="preserve">
     <value>labelGuessCount</value>
@@ -748,25 +1000,25 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;labelGuessCount.Parent" xml:space="preserve">
-    <value>panelMain</value>
+    <value>panelGame</value>
   </data>
   <data name="&gt;&gt;labelGuessCount.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>8</value>
   </data>
   <data name="labelGuess.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="labelGuess.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 7.8pt, style=Bold</value>
+    <value>Microsoft Sans Serif, 10.2pt, style=Bold</value>
   </data>
   <data name="labelGuess.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="labelGuess.Location" type="System.Drawing.Point, System.Drawing">
-    <value>515, 295</value>
+    <value>500, 346</value>
   </data>
   <data name="labelGuess.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 16</value>
+    <value>89, 20</value>
   </data>
   <data name="labelGuess.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -781,19 +1033,22 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;labelGuess.Parent" xml:space="preserve">
-    <value>panelMain</value>
+    <value>panelGame</value>
   </data>
   <data name="&gt;&gt;labelGuess.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>9</value>
+  </data>
+  <data name="buttonMainMenu.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Counter-Strike, 9pt, style=Bold</value>
   </data>
   <data name="buttonMainMenu.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="buttonMainMenu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>117, 471</value>
+    <value>104, 501</value>
   </data>
   <data name="buttonMainMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 48</value>
+    <value>100, 38</value>
   </data>
   <data name="buttonMainMenu.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -808,19 +1063,28 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;buttonMainMenu.Parent" xml:space="preserve">
-    <value>panelMain</value>
+    <value>panelGame</value>
   </data>
   <data name="&gt;&gt;buttonMainMenu.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>10</value>
+  </data>
+  <data name="buttonRestart.AccessibleDescription" xml:space="preserve">
+    <value>Restart the game</value>
+  </data>
+  <data name="buttonRestart.AccessibleName" xml:space="preserve">
+    <value>Restart</value>
+  </data>
+  <data name="buttonRestart.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Counter-Strike, 9pt, style=Bold</value>
   </data>
   <data name="buttonRestart.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="buttonRestart.Location" type="System.Drawing.Point, System.Drawing">
-    <value>526, 471</value>
+    <value>545, 501</value>
   </data>
   <data name="buttonRestart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 48</value>
+    <value>100, 38</value>
   </data>
   <data name="buttonRestart.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -835,25 +1099,28 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;buttonRestart.Parent" xml:space="preserve">
-    <value>panelMain</value>
+    <value>panelGame</value>
   </data>
   <data name="&gt;&gt;buttonRestart.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>11</value>
+  </data>
+  <data name="buttonGuess.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Counter-Strike, 12pt, style=Bold</value>
   </data>
   <data name="buttonGuess.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="buttonGuess.Location" type="System.Drawing.Point, System.Drawing">
-    <value>311, 351</value>
+    <value>305, 433</value>
   </data>
   <data name="buttonGuess.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 31</value>
+    <value>143, 44</value>
   </data>
   <data name="buttonGuess.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="buttonGuess.Text" xml:space="preserve">
-    <value>&amp;Guess!</value>
+    <value>&amp;Guess</value>
   </data>
   <data name="&gt;&gt;buttonGuess.Name" xml:space="preserve">
     <value>buttonGuess</value>
@@ -862,40 +1129,28 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;buttonGuess.Parent" xml:space="preserve">
-    <value>panelMain</value>
+    <value>panelGame</value>
   </data>
   <data name="&gt;&gt;buttonGuess.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>12</value>
   </data>
-  <data name="textBoxGuess.Location" type="System.Drawing.Point, System.Drawing">
-    <value>324, 323</value>
+  <data name="textBoxResponse.AccessibleDescription" xml:space="preserve">
+    <value>Textbox that prints the feedback from the computer</value>
   </data>
-  <data name="textBoxGuess.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 22</value>
+  <data name="textBoxResponse.AccessibleName" xml:space="preserve">
+    <value>Feedback Textbox</value>
   </data>
-  <data name="textBoxGuess.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;textBoxGuess.Name" xml:space="preserve">
-    <value>textBoxGuess</value>
-  </data>
-  <data name="&gt;&gt;textBoxGuess.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;textBoxGuess.Parent" xml:space="preserve">
-    <value>panelMain</value>
-  </data>
-  <data name="&gt;&gt;textBoxGuess.ZOrder" xml:space="preserve">
-    <value>10</value>
+  <data name="textBoxResponse.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.8pt</value>
   </data>
   <data name="textBoxResponse.Location" type="System.Drawing.Point, System.Drawing">
-    <value>89, 99</value>
+    <value>89, 72</value>
   </data>
   <data name="textBoxResponse.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="textBoxResponse.Size" type="System.Drawing.Size, System.Drawing">
-    <value>571, 193</value>
+    <value>562, 271</value>
   </data>
   <data name="textBoxResponse.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -907,52 +1162,109 @@
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;textBoxResponse.Parent" xml:space="preserve">
-    <value>panelMain</value>
+    <value>panelGame</value>
   </data>
   <data name="&gt;&gt;textBoxResponse.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>13</value>
   </data>
-  <data name="panelMain.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 94</value>
+  <data name="panelGame.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 73</value>
   </data>
-  <data name="panelMain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>748, 567</value>
+  <data name="panelGame.Size" type="System.Drawing.Size, System.Drawing">
+    <value>764, 581</value>
   </data>
-  <data name="panelMain.TabIndex" type="System.Int32, mscorlib">
+  <data name="panelGame.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
-  <data name="panelMain.Visible" type="System.Boolean, mscorlib">
+  <data name="panelGame.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="&gt;&gt;panelMain.Name" xml:space="preserve">
-    <value>panelMain</value>
+  <data name="&gt;&gt;panelGame.Name" xml:space="preserve">
+    <value>panelGame</value>
   </data>
-  <data name="&gt;&gt;panelMain.Type" xml:space="preserve">
+  <data name="&gt;&gt;panelGame.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;panelMain.Parent" xml:space="preserve">
+  <data name="&gt;&gt;panelGame.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;panelMain.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;panelGame.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="panelHighScores.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
+  <data name="&gt;&gt;labelHSLowest.Name" xml:space="preserve">
+    <value>labelHSLowest</value>
+  </data>
+  <data name="&gt;&gt;labelHSLowest.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelHSLowest.Parent" xml:space="preserve">
+    <value>groupBoxStats</value>
+  </data>
+  <data name="&gt;&gt;labelHSLowest.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;labelHSAverage.Name" xml:space="preserve">
+    <value>labelHSAverage</value>
+  </data>
+  <data name="&gt;&gt;labelHSAverage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelHSAverage.Parent" xml:space="preserve">
+    <value>groupBoxStats</value>
+  </data>
+  <data name="&gt;&gt;labelHSAverage.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;labelHSHighest.Name" xml:space="preserve">
+    <value>labelHSHighest</value>
+  </data>
+  <data name="&gt;&gt;labelHSHighest.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelHSHighest.Parent" xml:space="preserve">
+    <value>groupBoxStats</value>
+  </data>
+  <data name="&gt;&gt;labelHSHighest.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="groupBoxStats.Location" type="System.Drawing.Point, System.Drawing">
+    <value>52, 453</value>
+  </data>
+  <data name="groupBoxStats.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 100</value>
+  </data>
+  <data name="groupBoxStats.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="groupBoxStats.Text" xml:space="preserve">
+    <value>Stats</value>
+  </data>
+  <data name="&gt;&gt;groupBoxStats.Name" xml:space="preserve">
+    <value>groupBoxStats</value>
+  </data>
+  <data name="&gt;&gt;groupBoxStats.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBoxStats.Parent" xml:space="preserve">
+    <value>panelHighScores</value>
+  </data>
+  <data name="&gt;&gt;groupBoxStats.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="labelHighScores.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="labelHighScores.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 10.8pt</value>
+    <value>Microsoft Sans Serif, 13.8pt</value>
   </data>
   <data name="labelHighScores.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="labelHighScores.Location" type="System.Drawing.Point, System.Drawing">
-    <value>326, 31</value>
+    <value>307, 25</value>
   </data>
   <data name="labelHighScores.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 22</value>
+    <value>145, 29</value>
   </data>
   <data name="labelHighScores.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -970,7 +1282,7 @@
     <value>panelHighScores</value>
   </data>
   <data name="&gt;&gt;labelHighScores.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="dataGridViewHighScores.Location" type="System.Drawing.Point, System.Drawing">
     <value>13, 56</value>
@@ -994,7 +1306,7 @@
     <value>panelHighScores</value>
   </data>
   <data name="&gt;&gt;dataGridViewHighScores.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="label6.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1021,16 +1333,19 @@
     <value>panelHighScores</value>
   </data>
   <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
+  </data>
+  <data name="buttonHighScoresMainMenu.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Counter-Strike, 9pt, style=Bold</value>
   </data>
   <data name="buttonHighScoresMainMenu.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="buttonHighScoresMainMenu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>338, 470</value>
+    <value>316, 468</value>
   </data>
   <data name="buttonHighScoresMainMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 48</value>
+    <value>126, 48</value>
   </data>
   <data name="buttonHighScoresMainMenu.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -1048,13 +1363,13 @@
     <value>panelHighScores</value>
   </data>
   <data name="&gt;&gt;buttonHighScoresMainMenu.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="panelHighScores.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 76</value>
+    <value>2, 72</value>
   </data>
   <data name="panelHighScores.Size" type="System.Drawing.Size, System.Drawing">
-    <value>767, 585</value>
+    <value>767, 579</value>
   </data>
   <data name="panelHighScores.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -1074,11 +1389,14 @@
   <data name="&gt;&gt;panelHighScores.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="buttonHighScores.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Counter-Strike, 10.1999989pt, style=Bold, Italic</value>
+  </data>
   <data name="buttonHighScores.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="buttonHighScores.Location" type="System.Drawing.Point, System.Drawing">
-    <value>313, 426</value>
+    <value>298, 423</value>
   </data>
   <data name="buttonHighScores.Size" type="System.Drawing.Size, System.Drawing">
     <value>144, 34</value>
@@ -1087,7 +1405,7 @@
     <value>8</value>
   </data>
   <data name="buttonHighScores.Text" xml:space="preserve">
-    <value>High Scores</value>
+    <value>&amp;High Scores</value>
   </data>
   <data name="&gt;&gt;buttonHighScores.Name" xml:space="preserve">
     <value>buttonHighScores</value>
@@ -1099,6 +1417,78 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;buttonHighScores.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="buttonExit.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="buttonExit.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="buttonExit.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Counter-Strike, 10.1999989pt, style=Bold</value>
+  </data>
+  <data name="buttonExit.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonExit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>647, 550</value>
+  </data>
+  <data name="buttonExit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 74</value>
+  </data>
+  <data name="buttonExit.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="buttonExit.Text" xml:space="preserve">
+    <value>E&amp;xit</value>
+  </data>
+  <data name="&gt;&gt;buttonExit.Name" xml:space="preserve">
+    <value>buttonExit</value>
+  </data>
+  <data name="&gt;&gt;buttonExit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonExit.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;buttonExit.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="buttonSettings.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="buttonSettings.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="buttonSettings.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Counter-Strike, 9pt, style=Bold</value>
+  </data>
+  <data name="buttonSettings.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonSettings.Location" type="System.Drawing.Point, System.Drawing">
+    <value>34, 551</value>
+  </data>
+  <data name="buttonSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 74</value>
+  </data>
+  <data name="buttonSettings.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="buttonSettings.Text" xml:space="preserve">
+    <value>Se&amp;ttings</value>
+  </data>
+  <data name="&gt;&gt;buttonSettings.Name" xml:space="preserve">
+    <value>buttonSettings</value>
+  </data>
+  <data name="&gt;&gt;buttonSettings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonSettings.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;buttonSettings.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
   <data name="pictureBoxQuestionMarks.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
@@ -1128,32 +1518,86 @@
   <data name="&gt;&gt;pictureBoxQuestionMarks.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="pictureBoxSettings.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="labelHSLowest.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="pictureBoxSettings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>196, 494</value>
+  <data name="labelHSLowest.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 25</value>
   </data>
-  <data name="pictureBoxSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>66, 65</value>
+  <data name="labelHSLowest.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 16</value>
   </data>
-  <data name="pictureBoxSettings.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>Zoom</value>
+  <data name="labelHSLowest.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
   </data>
-  <data name="pictureBoxSettings.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="labelHSLowest.Text" xml:space="preserve">
+    <value>Lowest:</value>
   </data>
-  <data name="&gt;&gt;pictureBoxSettings.Name" xml:space="preserve">
-    <value>pictureBoxSettings</value>
+  <data name="&gt;&gt;labelHSLowest.Name" xml:space="preserve">
+    <value>labelHSLowest</value>
   </data>
-  <data name="&gt;&gt;pictureBoxSettings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;labelHSLowest.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;pictureBoxSettings.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;labelHSLowest.Parent" xml:space="preserve">
+    <value>groupBoxStats</value>
   </data>
-  <data name="&gt;&gt;pictureBoxSettings.ZOrder" xml:space="preserve">
-    <value>7</value>
+  <data name="&gt;&gt;labelHSLowest.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="labelHSHighest.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelHSHighest.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 48</value>
+  </data>
+  <data name="labelHSHighest.Size" type="System.Drawing.Size, System.Drawing">
+    <value>56, 16</value>
+  </data>
+  <data name="labelHSHighest.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="labelHSHighest.Text" xml:space="preserve">
+    <value>Highest:</value>
+  </data>
+  <data name="&gt;&gt;labelHSHighest.Name" xml:space="preserve">
+    <value>labelHSHighest</value>
+  </data>
+  <data name="&gt;&gt;labelHSHighest.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelHSHighest.Parent" xml:space="preserve">
+    <value>groupBoxStats</value>
+  </data>
+  <data name="&gt;&gt;labelHSHighest.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="labelHSAverage.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelHSAverage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 71</value>
+  </data>
+  <data name="labelHSAverage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 16</value>
+  </data>
+  <data name="labelHSAverage.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="labelHSAverage.Text" xml:space="preserve">
+    <value>Average:</value>
+  </data>
+  <data name="&gt;&gt;labelHSAverage.Name" xml:space="preserve">
+    <value>labelHSAverage</value>
+  </data>
+  <data name="&gt;&gt;labelHSAverage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelHSAverage.Parent" xml:space="preserve">
+    <value>groupBoxStats</value>
+  </data>
+  <data name="&gt;&gt;labelHSAverage.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -1162,7 +1606,7 @@
     <value>8, 16</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>772, 669</value>
+    <value>772, 653</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -4222,6 +4666,9 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA
         xw8AAMcPAADHnwAAxx8AAMcPAADHBwAAxwMAAMeDAADE4wAAwGMAAMBjAADEAwAAxAMAAMYHAAD//wAA
 </value>
+  </data>
+  <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>790, 700</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Guessing Game</value>

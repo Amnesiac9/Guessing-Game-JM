@@ -25,7 +25,7 @@ namespace Guessing_Game_JM.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Normal")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Player1_Difficulty {
             get {
                 return ((string)(this["Player1_Difficulty"]));

@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="Player1_Difficulty" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Normal</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Player1_Name" Type="System.String" Scope="User">
       <Value Profile="(Default)">Player1</Value>

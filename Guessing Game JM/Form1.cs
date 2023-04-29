@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.Design;
 using System.Data;
 using System.Drawing;
 using System.IO;
@@ -24,21 +25,39 @@ namespace Guessing_Game_JM
          * 4/28/2023
          * Simple Guessing Game, upgraded :)
          * Guess a number between 3 different ranges, selectable by the user. 
-         * 3 Different users available on the settings page.
          * Up to 3 High Scores are saved for each difficulty.
          * Saves and loads high scores to an xml file.
+         * 3 Different users available on the settings page.
          * 
          */
 
         /*
-         * CHANGE LOG
+         * CHANGE LOG 4/28/23
          * 
          * Changed the color of the Easy difficulty label to a lighter green.
          * Renamed some methods to be more descriptive.
          * Added ability to select up to 3 different users and save their settings individually.
-         * 
+         * Removed ability to resize the form.
+         * Added a numeric box instead of a text box for the guess input.
+         * Focused restart button on win or loss for easy restarting of the game.
+         * Made the cursor change to a hand when hovering over buttons.
+         * Changed style of text and buttons.
+         * Changed color of guess count and give warning on last guess.
+         * Fixed fuzzy text by adding DPI awareness to the app.manifest file. Source: https://stackoverflow.com/questions/50686009/font-blurry-in-windows-form-c-sharp
+         * Added method to check which panel is visible and set the accept and cancel buttons accordingly.
+         * Added a constant to store my name.
+         * Added a Stats panel to show lowest, highest, and average guesses on the score board.
+         * This uses the required functions listed here https://wwcc.instructure.com/courses/2331887/assignments/29185785
+         *  
          * 
          */
+
+        // TODO:
+        // Add a way to reset the high scores
+        // Add a way to reset the user settings
+        // Add cool typing affect to output box?
+        // Add more stats, like total wins and losses per difficulty
+
 
 
         /*
@@ -66,6 +85,7 @@ namespace Guessing_Game_JM
          */
 
         // High Score class structure
+        // This will the structure for each high score entry in our lists
         [Serializable()]
         public class HighScoreEntry
         {
@@ -82,9 +102,9 @@ namespace Guessing_Game_JM
         {
             HighScoreEntry highScoreEntry = new HighScoreEntry
             {
-                Difficulty = getCurrentDifficulty(), // get difficulty string based on selected user
+                Difficulty = GetCurrentDifficulty(), // get difficulty string based on selected user
                 Score = guesses.ToString(),
-                PlayerName = getCurrentUsername(), // get player name string based on selected user
+                PlayerName = GetCurrentUsername(), // get player name string based on selected user
                 Timestamp = DateTime.Now.ToString("M/dd/yyyy")
             };
 
@@ -98,6 +118,7 @@ namespace Guessing_Game_JM
         int maxGuesses; // class level variable to store the max number of guesses
         int maxRandomNumber; // class level variable to store the max random number
         Random random = new Random(); // Create a random number generator
+        const string CREATOR = "John Moreau"; // Pointless constant to store my name =)
 
 
         // High Score Lists
@@ -122,63 +143,60 @@ namespace Guessing_Game_JM
         private void FormMain_Load(object sender, EventArgs e)
         {
             // Get high scores from file if it exists into my lists 
-            readHighScoresXML();
+            ReadHighScoresXML();
+            // Set the creator name
+            labelAuthor.Text = $"by {CREATOR}";
         }
 
         // Start button
         private void buttonStart_Click(object sender, EventArgs e)
         {
+            // Toggle the visibility of the Game panel and bring to front
+            panelGame.Visible = !panelGame.Visible;
+            panelGame.BringToFront();
+
             // Initialize the guessing game
             guessingGameInitialize();
 
-            // Toggle the visibility of the Main panel and bring to front
-            panelMain.Visible = !panelMain.Visible;
-            panelMain.BringToFront();
+            // Set the player name label to the current player name
+            labelPlayerName.Text = GetCurrentUsername();
 
-            // Set the FormMain accept button to the buttonGuess
-            this.AcceptButton = buttonGuess;
-            // Set the FormMain cancel button to the buttonMainMenu
-            this.CancelButton = buttonMainMenu;
+            // Set the Accept and Cancel buttons for the Game panel
+            SetAcceptAndCancelButtons();
 
-            // Set focus to the guess text box
-            textBoxGuess.Focus();
         }
 
         // Settings button
-        private void pictureBoxSettings_Click(object sender, EventArgs e)
+        private void buttonSettings_Click(object sender, EventArgs e)
         {
             // Open the settings panel when user clicks the Settings button and bring to front
             panelSettings.Visible = !panelSettings.Visible;
             panelSettings.BringToFront();
 
             // Get the difficulty and Player Name from settings
-            getCurrentSettings();
+            GetCurrentSettings();
             
+            // Set the Accept and Cancel buttons for the Settings panel
+            SetAcceptAndCancelButtons();
 
-            // Set the FormMain accept button to the buttonSettingsAccept
-            this.AcceptButton = buttonSettingsAccept;
-            // Set the FormMain cancel button to the buttonCancel
-            this.CancelButton = buttonCancel;
-
-            buttonCancel.Focus();
         }
 
         // High Scores button
         private void buttonHighScores_Click(object sender, EventArgs e)
         {
             // Read the high scores from my lists and display them in the data table
-            readHighScoresToTable();
+            ReadHighScoresToTable();
+
+            // Update labels
+            UpdateHighScoreLabels();
 
             // Toggle the visibility of the HighScores panel and bring to front
             panelHighScores.Visible = !panelHighScores.Visible;
             panelHighScores.BringToFront();
 
-            // Set the FormMain accept button to the buttonGuess
-            this.AcceptButton = buttonHighScoresMainMenu;
-            // Set the FormMain cancel button to the buttonMainMenu
-            this.CancelButton = buttonHighScoresMainMenu;
+            // Set the Accept and Cancel buttons for the HighScores panel
+            SetAcceptAndCancelButtons();
 
-            buttonHighScoresMainMenu.Focus();
 
         }
 
@@ -200,12 +218,10 @@ namespace Guessing_Game_JM
             // Toggle the visibility of the HighScores panel
             panelHighScores.Visible = !panelHighScores.Visible;
             panelHighScores.SendToBack();
-            // Set the FormMain accept button to the buttonStart
-            this.AcceptButton = buttonStart;
-            // Set the FormMain cancel button to the buttonExit
-            this.CancelButton = buttonExit;
-            // Focus start
-            buttonStart.Focus();
+
+            // Set the Accept and Cancel buttons back to the Start and Exit buttons
+            SetAcceptAndCancelButtons();
+
         }
 
 
@@ -217,21 +233,15 @@ namespace Guessing_Game_JM
         private void buttonSettingsAccept_Click(object sender, EventArgs e)
         {
 
-
             // Save options to settings and update player name
-            updateSettings();
-
+            UpdateSettings();
 
             // Toggle the visibility of settings panel
             panelSettings.Visible = !panelSettings.Visible;
             panelSettings.SendToBack();
 
-            // Set the FormMain accept button to the buttonStart
-            this.AcceptButton = buttonStart;
-            // Set the FormMain cancel button to the buttonExit
-            this.CancelButton = buttonExit;
-            // Focus start
-            buttonStart.Focus();
+            // Set the Accept and Cancel buttons back to the Start and Exit buttons
+            SetAcceptAndCancelButtons();
 
         }
 
@@ -242,28 +252,24 @@ namespace Guessing_Game_JM
             panelSettings.Visible = !panelSettings.Visible;
             panelSettings.SendToBack();
 
-            // Set the FormMain accept button back to Start
-            this.AcceptButton = buttonStart;
-            // Set the FormMain cancel button back to Exit
-            this.CancelButton = buttonExit;
-            // Focus start
-            buttonStart.Focus();
+            // Set the accept and cancel buttons back to the Start and Exit buttons
+            SetAcceptAndCancelButtons();    
 
         }
 
         private void RadioButtonPlayer1_CheckedChanged(object sender, EventArgs e)
         {
-            getCurrentSettings();
+            GetCurrentSettings(); // Update the UI with the current settings
         }
 
         private void RadioButtonPlayer2_CheckedChanged(object sender, EventArgs e)
         {
-            getCurrentSettings();
+            GetCurrentSettings(); // Update the UI with the current settings
         }
 
         private void RadioButtonPlayer3_CheckedChanged(object sender, EventArgs e)
         {
-            getCurrentSettings();
+            GetCurrentSettings(); // Update the UI with the current settings
         }
 
 
@@ -276,38 +282,26 @@ namespace Guessing_Game_JM
         private void buttonMainMenu_Click(object sender, EventArgs e)
         {
             // Toggle the visibility of the Main panel 
-            panelMain.Visible = !panelMain.Visible;
-            panelMain.SendToBack();
+            panelGame.Visible = !panelGame.Visible;
+            panelGame.SendToBack();
 
-            // Set the FormMain accept button back to Start
-            this.AcceptButton = buttonStart;
-            // Set the FormMain cancel button back to Exit
-            this.CancelButton = buttonExit;
-            // Focus start
-            buttonStart.Focus();
+            SetAcceptAndCancelButtons();
+
         }
 
         // Restart button
         private void buttonRestart_Click(object sender, EventArgs e)
         {
-            // Restart the game
-            guessingGameInitialize();
-            // Set focus to the guess text box
-            textBoxGuess.Focus();
-            // Clear the guess text box
-            textBoxGuess.Text = "";
+            guessingGameInitialize(); // Restart the game
         }
 
         // Guess button
         private void buttonGuess_Click(object sender, EventArgs e)
         {
 
-            // Make guess
-            guessingGameGuess();
-            // Clear the guess text box
-            textBoxGuess.Text = "";
-            // Set focus to the guess text box
-            textBoxGuess.Focus();
+            GuessingGameGuess();// Make guess
+            numericUpDownGuess.Select(0, 3); //Select all text in the numeric up down box
+            numericUpDownGuess.Focus(); // Set focus to the guess numeric box
 
         }
 
@@ -318,73 +312,73 @@ namespace Guessing_Game_JM
         //////////////////////////////////
         private void guessingGameInitialize()
         {
-            string difficulty = getCurrentDifficulty(); // Get the difficulty
+            // Enable the guess button and text box
+            buttonGuess.Enabled = true;
+            numericUpDownGuess.Enabled = true;
+
+            string difficulty = GetCurrentDifficulty(); // Get the difficulty
             labelDifficultyValue.Text = difficulty; // Set the difficulty value label
             textBoxResponse.Text = "Random number generated. Make your first guess!"; // Reset the text box
-            labelGuessCount.Text = "0"; // Reset the guess count label
-            textBoxGuess.Text = ""; // Reset the guess text box
             this.guesses = 0; // Set the number of guesses to 0
+            labelGuessCount.Text = guesses.ToString(); // Reset the guess count label
+            labelGuessCount.ForeColor = SystemColors.ControlLightLight; // Reset the guess count label color
+            labelGuess.ForeColor = SystemColors.ControlLightLight; // Reset the guess label color
 
             // Set the maximum value for the random number generator and limit guesses based on the difficulty
-            
             if (difficulty == "Easy")
             {
                 // Set the maximum value to 10
                 maxRandomNumber = 10;
                 maxGuesses = 5;
-                labelMaxGuesses.Text = "/ 5";
                 labelDifficultyValue.ForeColor = Color.LightGreen;
-                labelRangeValue.Text = "1 - 10";
             }
             else if (difficulty == "Normal")
             {
                 // Set the maximum value to 25
                 maxRandomNumber = 25;
-                maxGuesses = 8;
-                labelMaxGuesses.Text = "/ 8";
+                maxGuesses = 6;
                 labelDifficultyValue.ForeColor = Color.Black;
-                labelRangeValue.Text = "1 - 25";
-
             }
             else // Hard
             {
                 // Set the maximum value to 50
                 maxRandomNumber = 50;
-                maxGuesses = 10;
-                labelMaxGuesses.Text = "/ 10";
+                maxGuesses = 7;
                 labelDifficultyValue.ForeColor = Color.Red;
-                labelRangeValue.Text = "1 - 50";
-
             }
 
-            
-            this.randomNumber = random.Next(1, maxRandomNumber); // Generate a random number between 1 and the maximum value
+            // Set labels for max guesses and range
+            labelMaxGuesses.Text = $"/ {maxGuesses}";
+            labelRangeValue.Text = $"1 - {maxRandomNumber}";
 
-            // Enable the guess button and text box
-            buttonGuess.Enabled = true;
-            textBoxGuess.Enabled = true;
+            this.randomNumber = random.Next(1, maxRandomNumber); // Generate a random number between 1 and the maximum value
+            numericUpDownGuess.Maximum = maxRandomNumber; // Set the maximum value for the guess numeric box
+            numericUpDownGuess.Value = maxRandomNumber / 2; // Reset the guess numeric box
+            numericUpDownGuess.Select(0, 3); //Select all text in the numeric up down box
+            numericUpDownGuess.Focus(); // Set focus to the guess numeric box
+
+
+
         }
 
 
         /////////////////////////////////
         //* Main Game, handle guesses *//
         /////////////////////////////////
-        private void guessingGameGuess()
+        private void GuessingGameGuess()
         {
             int guess;
             // Get the user's guess and confirm it is a number between 0 and the maximum value
-            while (!int.TryParse(textBoxGuess.Text, out guess) || guess > maxRandomNumber || guess < 0)
+            if (!int.TryParse(numericUpDownGuess.Text, out guess) || !RangeCheck(guess, 1, maxRandomNumber))
             {
                 // Display an error message
-                MessageBox.Show($"Please enter a number between 0 and {maxRandomNumber}!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                textBoxGuess.Text = ""; // Clear the text box
-                textBoxGuess.Focus(); // Set focus to the text box
+                MessageBox.Show($"Please enter a number between 1 and {maxRandomNumber}!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return; // Exit the method
             }
 
 
             guesses++; // Increment the number of guesses
-            labelGuessCount.Text = $"{guesses}"; // Update the guess count label
+            labelGuessCount.Text = guesses.ToString(); // Update the guess count label
 
             // Check for loss
             if (guesses >= maxGuesses && guess != randomNumber)
@@ -394,21 +388,22 @@ namespace Guessing_Game_JM
                 textBoxResponse.AppendText(Environment.NewLine + "To play again, press restart.");
                 // Disable the guess button and text box
                 buttonGuess.Enabled = false;
-                textBoxGuess.Enabled = false;
+                numericUpDownGuess.Enabled = false;
+                buttonRestart.Focus();
             }
             // Check if the guess is too high
             else if (guess > randomNumber)
             {
                 // Add result message to the text box
-                string resultMessage = "Too High, try again!";
-                textBoxResponse.AppendText($"{Environment.NewLine}{guess}: {resultMessage}");
+                textBoxResponse.AppendText($"{Environment.NewLine}Guess: {guess} - Too High, try again!");
+                LastGuessCheck();
             }
             // Check if the guess is too low
             else if (guess < randomNumber)
             {
                 // Add result message to the text box
-                string resultMessage = "Too Low, try again!";
-                textBoxResponse.AppendText($"{Environment.NewLine}{guess}: {resultMessage}");
+                textBoxResponse.AppendText($"{Environment.NewLine}Guess: {guess} - Too Low, try again!");
+                LastGuessCheck();
 
             }
             else // The guess is correct
@@ -416,20 +411,33 @@ namespace Guessing_Game_JM
                 // Add result message to the text box
                 textBoxResponse.AppendText($"{Environment.NewLine}~~Congratulations!~~ You guessed the number in {guesses} guesses.");
                 // Check for high score
-                if (checkForHighScore(guesses))
+                if (CheckForHighScore(guesses))
                 {
                     textBoxResponse.AppendText($"{Environment.NewLine}~~~~ NEW HIGH SCORE! ~~~~");
                     // Write the high scores to file
-                    writeHighScoresXML();
+                    WriteHighScoresXML();
                 }
 
                 // Disable the guess button and text box
                 buttonGuess.Enabled = false;
-                textBoxGuess.Enabled = false;
+                numericUpDownGuess.Enabled = false;
+                buttonRestart.Focus();
 
                 // Play again?
                 textBoxResponse.AppendText(Environment.NewLine + "To play again, press restart.");
 
+            }
+
+        }
+
+        // Check if the guess is the last guess
+        private void LastGuessCheck()
+        {
+            if (guesses == maxGuesses - 1)
+            {
+                textBoxResponse.AppendText(Environment.NewLine + "This is your last guess!");
+                labelGuessCount.ForeColor = Color.Orange;
+                labelGuess.ForeColor = Color.Red;
             }
         }
 
@@ -439,7 +447,7 @@ namespace Guessing_Game_JM
 
 
         // Read high scores from lists into data table
-        private void readHighScoresToTable()
+        private void ReadHighScoresToTable()
         {
             // Create a data table to hold the high scores
             DataTable dataTable = new DataTable();
@@ -494,7 +502,7 @@ namespace Guessing_Game_JM
 
 
         // Read the high scores from XML file
-        private void readHighScoresXML()
+        private void ReadHighScoresXML()
         {
             // Get filepath and check if the file exists
             string filePath = Path.Combine(Application.StartupPath, "HighScores.xml");
@@ -545,7 +553,7 @@ namespace Guessing_Game_JM
 
 
         // Write high scores to XML
-        private void writeHighScoresXML()
+        private void WriteHighScoresXML()
         {
 
             // Get filepath
@@ -569,7 +577,7 @@ namespace Guessing_Game_JM
         }
 
         // If new high score update high score lists and return true 
-        private bool checkForHighScore(int guesses)
+        private bool CheckForHighScore(int guesses)
         {
             // Declare bool to return
             bool isNewHighScore = false;
@@ -578,7 +586,7 @@ namespace Guessing_Game_JM
             List<HighScoreEntry> currentHighScores;
 
             // Get the list of the current difficulty high scores
-            currentHighScores = getCurrentDifficultyScores();
+            currentHighScores = GetCurrentDifficultyScores();
 
             // Check if there's room for a new high score (Max 3 per difficulty)
             if (currentHighScores.Count < 3)
@@ -613,7 +621,7 @@ namespace Guessing_Game_JM
 
 
             // Set current high scores to the corresponding high scores list
-            setCurrentDifficultyScores(currentHighScores);
+            SetCurrentDifficultyScores(currentHighScores);
 
             // Return true if new high score or false if not
             return isNewHighScore;
@@ -621,9 +629,9 @@ namespace Guessing_Game_JM
 
 
         // Helper function to return the current difficulty's corresponding list
-        private List<HighScoreEntry> getCurrentDifficultyScores()
+        private List<HighScoreEntry> GetCurrentDifficultyScores()
         {
-            string difficulty = getCurrentDifficulty();
+            string difficulty = GetCurrentDifficulty();
             // Set current high scores to the corresponding high scores list
             if (difficulty == "Easy")
                 return easyHighScores;
@@ -636,9 +644,9 @@ namespace Guessing_Game_JM
         }
 
         // Helper function to update the current difficulty's list.
-        private void setCurrentDifficultyScores(List<HighScoreEntry> currentDifficultyScores )
+        private void SetCurrentDifficultyScores(List<HighScoreEntry> currentDifficultyScores )
         {
-            string difficulty = getCurrentDifficulty();
+            string difficulty = GetCurrentDifficulty();
             // Set current high scores to the corresponding high scores list
             switch (difficulty)
             {
@@ -656,12 +664,28 @@ namespace Guessing_Game_JM
             }
         }
 
+        // Loop over high scores and set labels for the high scores panel
+        private void UpdateHighScoreLabels()
+        {
+
+            // Create a list of all high scores combined
+            List<HighScoreEntry> highScores = new List<HighScoreEntry>();
+            highScores.AddRange(easyHighScores);
+            highScores.AddRange(normalHighScores);
+            highScores.AddRange(hardHighScores);
+
+            labelHSLowest.Text = $"Lowest: {Lowest(highScores)}";
+            labelHSHighest.Text = $"Highest: {Highest(highScores)}";
+            labelHSAverage.Text = $"Average: {Average(highScores)}" ;
+            
+        }
+
         ////////////////////////////////
         //   Other helper functions   //
         ////////////////////////////////
 
         // Helper function to update the difficulty when the user accepts their changes
-        private void updateSettings()
+        private void UpdateSettings()
         {
             if (RadioButtonPlayer1.Checked)
             {
@@ -689,7 +713,7 @@ namespace Guessing_Game_JM
         }
 
 
-        private void getCurrentSettings()
+        private void GetCurrentSettings()
         {
 
 
@@ -723,46 +747,124 @@ namespace Guessing_Game_JM
         }
 
         // Return the current user's name as a string
-        private string getCurrentUsername()
+        private string GetCurrentUsername()
         {
             if (RadioButtonPlayer1.Checked)
-            {
                 return Properties.Settings.Default.Player1_Name;
-            }
             else if (RadioButtonPlayer2.Checked)
-            {
                 return Properties.Settings.Default.Player2_Name;
-            }
             else if (RadioButtonPlayer3.Checked)
-            {
                 return Properties.Settings.Default.Player3_Name;
-            }
             else
-            {
                 return "Error getting username";
-            }
         }
 
         // Return the current user's difficulty as a string
-        private string getCurrentDifficulty()
+        private string GetCurrentDifficulty()
         {
             if (RadioButtonPlayer1.Checked)
-            {
                 return Properties.Settings.Default.Player1_Difficulty;
-            }
             else if (RadioButtonPlayer2.Checked)
-            {
                 return Properties.Settings.Default.Player2_Difficulty;
-            }
             else if (RadioButtonPlayer3.Checked)
-            {
                 return Properties.Settings.Default.Player3_Difficulty;
-            }
             else
-            {
                 return "Error getting difficulty";
+        }
+
+        // Add a method to check which panel is visible and set the accept and cancel buttons accordingly
+        private string GetCurrentPanel()
+        {
+            if (panelSettings.Visible)
+                return "Settings";
+            else if (panelHighScores.Visible)
+                return "HighScores";
+            else if (panelGame.Visible)
+                return "Game";
+            else
+                return "None";
+        }
+
+        private void SetAcceptAndCancelButtons()
+        {
+            // Set the accept and cancel buttons based on the current panel
+            switch (GetCurrentPanel())
+            {
+                case "Settings":
+                    // Focus the cancel button
+                    buttonSettingsCancel.Focus();
+                    AcceptButton = buttonSettingsAccept;
+                    CancelButton = buttonSettingsCancel;
+                    break;
+                case "HighScores":
+                    // Focus the main menu button
+                    buttonHighScoresMainMenu.Focus();
+                    AcceptButton = buttonHighScoresMainMenu;
+                    CancelButton = buttonHighScoresMainMenu;
+                    break;
+                case "Game":
+                    AcceptButton = buttonGuess;
+                    CancelButton = buttonMainMenu;
+                    break;
+                default:
+                    // Focus start
+                    buttonStart.Focus();
+                    AcceptButton = buttonStart;
+                    CancelButton = buttonExit;
+                    break;
             }
         }
+
+
+        /// REQUIRED FUNCTIONS FOR ASSIGNEMENT /// 
+        
+        // Function to check if a value is within a range
+        private bool RangeCheck(double value, double min, double max)
+        {
+            if (value >= min && value <= max)
+                return true;
+            else
+                return false;
+        }
+
+        // Function to check the average of an array of values
+        private decimal Average(List<HighScoreEntry> HighScores)
+        {
+            decimal sum = 0;
+            foreach (HighScoreEntry highScoreEntry in HighScores)
+            {
+                sum += int.Parse(highScoreEntry.Score);
+            }
+            return decimal.Round(sum / HighScores.Count, 2, MidpointRounding.AwayFromZero);
+        }
+
+        // Function to check the highest value in an array
+        private int Highest(List<HighScoreEntry> HighScores)
+        {
+            int highest = 0;
+            foreach (HighScoreEntry highScoreEntry in HighScores)
+            {
+                if (int.TryParse(highScoreEntry.Score, out int score) && score > highest)
+                    highest = score;
+            }
+            return highest;
+        }
+
+        // Function to check the lowest value in a list
+        private int Lowest(List<HighScoreEntry> HighScores)
+        {
+            int lowest = Highest(HighScores);
+            foreach (HighScoreEntry highScoreEntry in HighScores)
+            {
+                if (int.TryParse(highScoreEntry.Score, out int score) && score < lowest)
+                    lowest = score;
+            }
+            return lowest;
+        }
+
+
+
+
 
 
         /// 
@@ -906,7 +1008,6 @@ namespace Guessing_Game_JM
             sw.Close();
 
         }
-
 
     }
 }
